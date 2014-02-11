@@ -33,19 +33,26 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 
 - (NSArray *)omnimatch:(NSString *)password
 {
+    /*
+     omnimatch -- combine everything
+     */
+    
     NSMutableArray *matches = [[NSMutableArray alloc] init];
 
     for (MatcherBlock matcher in self.dictionaryMatchers) {
         [matches addObjectsFromArray:matcher(password)];
     }
 
-    // TODO: sort
-
-    return matches;
+    return [matches sortedArrayUsingDescriptors: @[[[NSSortDescriptor alloc] initWithKey:@"i" ascending:YES],
+                                                   [[NSSortDescriptor alloc] initWithKey:@"j" ascending:YES]]];
 }
 
 - (NSMutableArray *)dictionaryMatch:(NSString *)password rankedDict:(NSMutableDictionary *)rankedDict
 {
+    /*
+     dictionary match (common passwords, english, last names, etc)
+     */
+    
     NSMutableArray *result = [[NSMutableArray alloc] init];
     int length = [password length];
     NSString *passwordLower = [password lowercaseString];
@@ -57,7 +64,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 
             if (rank != nil) {
                 NSDictionary *dict =  @{
-                                        @"pattern": @"dictionary",
+                                        @"pattern": [NSNumber numberWithInt:DBMatcherMatchPatternDictionary],
                                         @"i": [NSNumber numberWithInt:i],
                                         @"j": [NSNumber numberWithInt:j],
                                         @"token": [password substringWithRange:NSMakeRange(i, j-i)],

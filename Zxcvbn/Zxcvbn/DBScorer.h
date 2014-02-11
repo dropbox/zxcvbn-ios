@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class DBResult;
+
 @interface DBScorer : NSObject
+
+- (DBResult *)minimumEntropyMatchSequence:(NSString *)password matches:(NSArray *)matches;
 
 @end

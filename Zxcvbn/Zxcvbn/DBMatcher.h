@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    DBMatcherMatchPatternDictionary,
+} DBMatcherMatchPattern;
+
 @interface DBMatcher : NSObject
 
 - (NSArray *)omnimatch:(NSString *)password;

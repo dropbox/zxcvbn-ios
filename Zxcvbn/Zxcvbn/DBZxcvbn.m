@@ -11,6 +11,7 @@
 @interface DBZxcvbn ()
 
 @property (nonatomic, strong) DBMatcher *matcher;
+@property (nonatomic, strong) DBScorer *scorer;
 
 @end
 
@@ -22,6 +23,7 @@
 
     if (self != nil) {
         self.matcher = [[DBMatcher alloc] init];
+        self.scorer = [[DBScorer alloc] init];
     }
 
     return self;
@@ -37,7 +39,8 @@
     NSArray *matches = [self.matcher omnimatch:password];
     NSLog(@"matches: %@", matches);
 
-    DBResult *result = [[DBResult alloc] init];
+    DBResult *result = [self.scorer minimumEntropyMatchSequence:password matches:matches];
+    
     return result;
 }
 

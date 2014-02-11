@@ -10,4 +10,6 @@
 
 @interface DBResult : NSObject
 
+@property (strong, nonatomic) NSString *password;
+
 @end
