@@ -22,14 +22,14 @@
      minimum entropy. O(nm) dp alg for length-n password with m candidate matches.
      */
     
-    int bruteforceCardinality = [self calcBruteforceCardinality:password];
+    float bruteforceCardinality = [self calcBruteforceCardinality:password];
     
     NSMutableArray *upToK = [[NSMutableArray alloc] init]; // minimum entropy up to k.
     NSMutableArray *backpointers = [[NSMutableArray alloc] init]; // for the optimal sequence of matches up to k, holds the final match (match.j == k). null means the sequence ends w/ a brute-force character.
     
     for (int k = 0; k < [password length]; k++) {
         // starting scenario to try and beat: adding a brute-force character to the minimum entropy sequence at k-1.
-        [upToK insertObject:[NSNumber numberWithInt:[get(upToK, k-1) intValue] + lg(bruteforceCardinality)] atIndex:k];
+        [upToK insertObject:[NSNumber numberWithFloat:[get(upToK, k-1) floatValue] + lg(bruteforceCardinality)] atIndex:k];
         [backpointers insertObject:[NSNull null] atIndex:k];
         for (DBMatch *match in matches) {
             int i = match.i;
@@ -38,9 +38,9 @@
                 continue;
             }
             // see if best entropy up to i-1 + entropy of this match is less than the current minimum at j.
-            int candidateEntropy = [get(upToK, i-1) intValue] + [self calcEntropy:match];
-            if (candidateEntropy < [[upToK objectAtIndex:j] intValue]) {
-                [upToK insertObject:[NSNumber numberWithInt:candidateEntropy] atIndex:j];
+            float candidateEntropy = [get(upToK, i-1) floatValue] + [self calcEntropy:match];
+            if (candidateEntropy < [[upToK objectAtIndex:j] floatValue]) {
+                [upToK insertObject:[NSNumber numberWithFloat:candidateEntropy] atIndex:j];
                 [backpointers insertObject:match atIndex:j];
             }
         }
@@ -88,11 +88,11 @@
         matchSequence = matchSequenceCopy;
     }
 
-    int minEntropy = 0;
+    float minEntropy = 0.0;
     if ([password length] > 0) { // corner case is for an empty password ''
-        minEntropy = [[upToK objectAtIndex:[password length] - 1] intValue];
+        minEntropy = [[upToK objectAtIndex:[password length] - 1] floatValue];
     }
-    int crackTime = [self entropyToCrackTime:minEntropy];
+    float crackTime = [self entropyToCrackTime:minEntropy];
 
     // final result object
     DBResult *result = [[DBResult alloc] init];
@@ -103,7 +103,7 @@
     return result;
 }
 
-- (int)entropyToCrackTime:(int)entropy
+- (float)entropyToCrackTime:(int)entropy
 {
     /*
      threat model -- stolen hash catastrophe scenario
@@ -131,7 +131,7 @@
 #pragma mark - Entropy calcs
 #pragma -- one function per match pattern
 
-- (int)calcEntropy:(DBMatch *)match
+- (float)calcEntropy:(DBMatch *)match
 {
     if (match.entropy > 0) {
         // a match's entropy doesn't change. cache it.
@@ -150,7 +150,7 @@
     return match.entropy;
 }
 
-- (int)dictionaryEntropy:(DBMatch *)match
+- (float)dictionaryEntropy:(DBMatch *)match
 {
     match.baseEntropy = lg(match.rank); // keep these as properties for display purposes
     match.upperCaseEntropy = [self extraUppercaseEntropy:match];
@@ -158,7 +158,7 @@
     return match.baseEntropy + match.upperCaseEntropy + match.l33tEntropy;
 }
 
-- (int)extraUppercaseEntropy:(DBMatch *)match
+- (float)extraUppercaseEntropy:(DBMatch *)match
 {
     NSString *word = match.token;
     if ([word rangeOfCharacterFromSet:[NSCharacterSet uppercaseLetterCharacterSet]].location == NSNotFound) {
@@ -190,22 +190,22 @@
         }
     }
 
-    int possibilities = 0;
+    float possibilities = 0.0;
     for (int i = 0; i < MIN(uppercaseLength, lowercaseLength); i++) {
         possibilities += binom(uppercaseLength + lowercaseLength, i);
     }
     return lg(possibilities);
 }
 
-- (int)extraL33tEntropy:(DBMatch *)match
+- (float)extraL33tEntropy:(DBMatch *)match
 {
     // TODO
-    return 0;
+    return 0.0;
 }
 
 #pragma mark - Utilities
 
-- (int)calcBruteforceCardinality:(NSString *)password
+- (float)calcBruteforceCardinality:(NSString *)password
 {
     int digits = 0;
     int upper = 0;
@@ -231,13 +231,13 @@
 
 #pragma mark - Helpers
 
-int binom(int n, int k)
+float binom(int n, int k)
 {
     // Returns binomial coefficient (n choose k).
     // http://blog.plover.com/math/choose.html
     if (k > n) { return 0; }
     if (k == 0) { return 1; }
-    int result = 1;
+    float result = 1;
     for (int denom = 1; denom < k + 1; denom++) {
         result *= n;
         result /= denom;

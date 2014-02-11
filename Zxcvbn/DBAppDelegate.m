@@ -63,19 +63,35 @@
 
     for (NSString *password in testPasswords) {
 
-        NSLog(@"password: %@", password);
-
         DBResult *result = [zxcvbn passwordStrength:password];
 
-        NSLog(@"entropy: %d", result.entropy);
-
-        NSLog(@"match sequence:");
-        for (DBMatch *match in result.matchSequence) {
-            NSLog(@"'%@'", match.token);
-            NSLog(@"%@", [match patternString]);
-        }
+        NSLog(@"password: %@", result.password);
+        NSLog(@"entropy: %f", result.entropy);
+        NSLog(@"crack time (seconds): %f", result.crackTime);
+        //crack time (display):	instant
+        //score from 0 to 4:	0
+        //calculation time (ms):	7
 
         NSLog(@"\n");
+        NSLog(@"match sequence:");
+        for (DBMatch *match in result.matchSequence) {
+            NSLog(@"\n");
+            NSLog(@"'%@'", match.token);
+            NSLog(@"pattern: %@", [match patternString]);
+            NSLog(@"entropy: %f", match.entropy);
+            if (match.dictionaryName)
+                NSLog(@"dict-name: %@", match.dictionaryName);
+            if (match.rank)
+                NSLog(@"rank: %d", match.rank);
+            if (match.baseEntropy)
+                NSLog(@"base-entropy: %f", match.baseEntropy);
+            if (match.upperCaseEntropy)
+                NSLog(@"upper-entropy: %f", match.upperCaseEntropy);
+            if (match.cardinality)
+                NSLog(@"cardinality: %d", match.cardinality);
+        }
+
+        NSLog(@"\n\n");
     }
 
     return YES;
