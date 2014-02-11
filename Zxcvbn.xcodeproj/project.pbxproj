@@ -61,6 +61,7 @@
 		08F5A01018A88BB600FB34D6 /* us_census_2000_surnames.txt in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FF118A88BB600FB34D6 /* us_census_2000_surnames.txt */; };
 		08F5A01418A88C0800FB34D6 /* adjacency_graphs.json in Resources */ = {isa = PBXBuildFile; fileRef = 08F5A01218A88C0800FB34D6 /* adjacency_graphs.json */; };
 		08F5A01518A88C0800FB34D6 /* frequency_lists.json in Resources */ = {isa = PBXBuildFile; fileRef = 08F5A01318A88C0800FB34D6 /* frequency_lists.json */; };
+		4CD48BFB18A9A69F00B100B1 /* DBMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD48BFA18A9A69F00B100B1 /* DBMatch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +138,8 @@
 		08F59FF118A88BB600FB34D6 /* us_census_2000_surnames.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = us_census_2000_surnames.txt; sourceTree = "<group>"; };
 		08F5A01218A88C0800FB34D6 /* adjacency_graphs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = adjacency_graphs.json; sourceTree = "<group>"; };
 		08F5A01318A88C0800FB34D6 /* frequency_lists.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = frequency_lists.json; sourceTree = "<group>"; };
+		4CD48BF718A9A52D00B100B1 /* DBMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMatch.h; sourceTree = "<group>"; };
+		4CD48BFA18A9A69F00B100B1 /* DBMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMatch.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +247,8 @@
 				08F59FD218A88BB600FB34D6 /* data */,
 				08F5A01118A88C0800FB34D6 /* generated */,
 				08F59FCD18A88B3A00FB34D6 /* scripts */,
+				4CD48BF718A9A52D00B100B1 /* DBMatch.h */,
+				4CD48BFA18A9A69F00B100B1 /* DBMatch.m */,
 				08F59FC218A885EE00FB34D6 /* DBMatcher.h */,
 				08F59FC318A885EE00FB34D6 /* DBMatcher.m */,
 				08F59FBC18A8832800FB34D6 /* DBResult.h */,
@@ -453,6 +458,7 @@
 				08F59FC718A887BB00FB34D6 /* DBScorer.m in Sources */,
 				08F59FC018A8832800FB34D6 /* DBResult.m in Sources */,
 				08F59F9018A8830300FB34D6 /* main.m in Sources */,
+				4CD48BFB18A9A69F00B100B1 /* DBMatch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,6 +677,7 @@
 				08F59FB718A8830300FB34D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		08F59FB818A8830300FB34D6 /* Build configuration list for PBXNativeTarget "ZxcvbnTests" */ = {
 			isa = XCConfigurationList;
@@ -679,6 +686,7 @@
 				08F59FBA18A8830300FB34D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

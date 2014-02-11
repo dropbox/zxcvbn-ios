@@ -8,6 +8,8 @@
 
 #import "DBMatcher.h"
 
+#import "DBMatch.h"
+
 typedef NSArray* (^MatcherBlock)(NSString *password);
 
 @interface DBMatcher ()
@@ -63,15 +65,14 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
             NSNumber *rank = [rankedDict objectForKey:word];
 
             if (rank != nil) {
-                NSDictionary *dict =  @{
-                                        @"pattern": [NSNumber numberWithInt:DBMatcherMatchPatternDictionary],
-                                        @"i": [NSNumber numberWithInt:i],
-                                        @"j": [NSNumber numberWithInt:j],
-                                        @"token": [password substringWithRange:NSMakeRange(i, j-i)],
-                                        @"matched_word": word,
-                                        @"rank": rank
-                                        };
-                [result addObject:[[NSMutableDictionary alloc] initWithDictionary:dict]];
+                DBMatch *match = [[DBMatch alloc] init];
+                match.pattern = DBMatchPatternDictionary;
+                match.i = i;
+                match.j = j;
+                match.token = [password substringWithRange:NSMakeRange(i, j-i)];
+                match.matchedWord = word;
+                match.rank = [rank intValue];
+                [result addObject:match];
             }
         }
     }
@@ -97,9 +98,9 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
     MatcherBlock block = ^ NSArray* (NSString *password) {
 
         NSMutableArray *matches = [self dictionaryMatch:password rankedDict:rankedDict];
-
-        for (NSMutableDictionary *match in matches) {
-            [match setObject:dictName forKey:@"dictionary_name"];
+        
+        for (DBMatch *match in matches) {
+            match.dictionaryName = dictName;
         }
 
         return matches;

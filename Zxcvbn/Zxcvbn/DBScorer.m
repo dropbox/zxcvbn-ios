@@ -8,6 +8,7 @@
 
 #import "DBScorer.h"
 
+#import "DBMatch.h"
 #import "DBMatcher.h"
 #import "DBResult.h"
 
@@ -31,9 +32,9 @@
         // starting scenario to try and beat: adding a brute-force character to the minimum entropy sequence at k-1.
         [upToK insertObject:[NSNumber numberWithInt:[get(upToK, k-1) intValue] + lg(bruteforceCardinality)] atIndex:k];
         [backpointers insertObject:[NSNull null] atIndex:k];
-        for (NSDictionary *match in matches) {
-            int i = [[match objectForKey:@"i"] intValue];
-            int j = [[match objectForKey:@"j"] intValue];
+        for (DBMatch *match in matches) {
+            int i = match.i;
+            int j = match.j;
             if (j != k) {
                 continue;
             }
@@ -98,44 +99,44 @@ id get(NSArray *a, int i)
 #pragma mark - Entropy calcs
 #pragma -- one function per match pattern
 
-- (int)calcEntropy:(NSMutableDictionary *)match
+- (int)calcEntropy:(DBMatch *)match
 {
-    if ([match objectForKey:@"entropy"]) {
+    if (match.entropy > 0) {
         // a match's entropy doesn't change. cache it.
-        return [[match objectForKey:@"entropy"] intValue];
+        return match.entropy;
     }
     
-    int entropy = 0;
-    switch ([[match objectForKey:@"pattern"] intValue]) {
-        case DBMatcherMatchPatternDictionary:
-            entropy = [self dictionaryEntropy:match];
+    switch (match.pattern) {
+        case DBMatchPatternDictionary:
+            match.entropy = [self dictionaryEntropy:match];
             break;
         
         default:
             break;
     }
-    
-    [match setObject:[NSNumber numberWithInt:entropy] forKey:@"entropy"];
-    NSLog(@"matched word: %@", [match objectForKey:@"matched_word"]);
-    NSLog(@"entropy: %d", entropy);
-    return entropy;
+
+    NSLog(@"matched word: %@", match.matchedWord);
+    NSLog(@"entropy: %d", match.entropy);
+    return match.entropy;
 }
 
-- (int)dictionaryEntropy:(NSMutableDictionary *)match
+- (int)dictionaryEntropy:(DBMatch *)match
 {
-    int baseEntropy = lg([[match objectForKey:@"rank"] intValue]); // keep these as properties for display purposes
-    [match setObject:[NSNumber numberWithInt:baseEntropy] forKey:@"base_entropy"];
-    int upperCaseEntropy = [self extraUppercaseEntropy:match];
-    [match setObject:[NSNumber numberWithInt:upperCaseEntropy] forKey:@"uppercase_entropy"];
-    //match.l33t_entropy = extra_l33t_entropy match
-    //match.base_entropy + match.uppercase_entropy + match.l33t_entropy
-    return baseEntropy + upperCaseEntropy;
+    match.baseEntropy = lg(match.rank); // keep these as properties for display purposes
+    match.upperCaseEntropy = [self extraUppercaseEntropy:match];
+    match.l33tEntropy = [self extraL33tEntropy:match];
+    return match.baseEntropy + match.upperCaseEntropy + match.l33tEntropy;
 }
 
--(int)extraUppercaseEntropy:(NSMutableDictionary *)match
+- (int)extraUppercaseEntropy:(DBMatch *)match
 {
-    NSString *word = [match objectForKey:@"token"];
-    
+    // TODO
+    return 0;
+}
+
+- (int)extraL33tEntropy:(DBMatch *)match
+{
+    // TODO
     return 0;
 }
 
