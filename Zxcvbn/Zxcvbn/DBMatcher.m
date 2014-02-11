@@ -61,7 +61,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 
     for (int i = 0; i < length; i++) {
         for (int j = i; j < length; j++) {
-            NSString *word = [passwordLower substringWithRange:NSMakeRange(i, j-i)];
+            NSString *word = [passwordLower substringWithRange:NSMakeRange(i, j - i + 1)];
             NSNumber *rank = [rankedDict objectForKey:word];
 
             if (rank != nil) {
@@ -69,7 +69,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
                 match.pattern = DBMatchPatternDictionary;
                 match.i = i;
                 match.j = j;
-                match.token = [password substringWithRange:NSMakeRange(i, j-i)];
+                match.token = [password substringWithRange:NSMakeRange(i, j - i + 1)];
                 match.matchedWord = word;
                 match.rank = [rank intValue];
                 [result addObject:match];

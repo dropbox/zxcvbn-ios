@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import "DBMatch.h"
 #import "DBMatcher.h"
 #import "DBResult.h"
 #import "DBScorer.h"

@@ -10,6 +10,7 @@
 
 typedef enum {
     DBMatchPatternDictionary,
+    DBMatchPatternBruteforce,
 } DBMatchPattern;
 
 @interface DBMatch : NSObject
@@ -22,9 +23,12 @@ typedef enum {
 @property (nonatomic, assign) int rank;
 @property (strong, nonatomic) NSString *dictionaryName;
 
-@property (nonatomic, assign) int entropy;
-@property (nonatomic, assign) int baseEntropy;
-@property (nonatomic, assign) int upperCaseEntropy;
-@property (nonatomic, assign) int l33tEntropy;
+@property (nonatomic, assign) int cardinality;
+@property (nonatomic, assign) float entropy;
+@property (nonatomic, assign) float baseEntropy;
+@property (nonatomic, assign) float upperCaseEntropy;
+@property (nonatomic, assign) float l33tEntropy;
+
+- (NSString *)patternString;
 
 @end

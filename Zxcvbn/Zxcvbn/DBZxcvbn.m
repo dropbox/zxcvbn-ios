@@ -37,7 +37,6 @@
 - (DBResult *)passwordStrength:(NSString *)password userInputs:(NSArray *)userInputs
 {
     NSArray *matches = [self.matcher omnimatch:password];
-    NSLog(@"matches: %@", matches);
 
     DBResult *result = [self.scorer minimumEntropyMatchSequence:password matches:matches];
     

@@ -10,4 +10,13 @@
 
 @implementation DBMatch
 
+- (NSString *)patternString
+{
+    NSArray *patterns = @[
+                          @"dictionary",
+                          @"bruteforce"
+                          ];
+    return [patterns objectAtIndex:self.pattern];
+}
+
 @end

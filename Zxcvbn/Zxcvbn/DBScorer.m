@@ -23,7 +23,6 @@
      */
     
     int bruteforceCardinality = [self calcBruteforceCardinality:password];
-    NSLog(@"brute-force cardinality: %d", bruteforceCardinality);
     
     NSMutableArray *upToK = [[NSMutableArray alloc] init]; // minimum entropy up to k.
     NSMutableArray *backpointers = [[NSMutableArray alloc] init]; // for the optimal sequence of matches up to k, holds the final match (match.j == k). null means the sequence ends w/ a brute-force character.
@@ -40,17 +39,93 @@
             }
             // see if best entropy up to i-1 + entropy of this match is less than the current minimum at j.
             int candidateEntropy = [get(upToK, i-1) intValue] + [self calcEntropy:match];
-
-            
-            
+            if (candidateEntropy < [[upToK objectAtIndex:j] intValue]) {
+                [upToK insertObject:[NSNumber numberWithInt:candidateEntropy] atIndex:j];
+                [backpointers insertObject:match atIndex:j];
+            }
         }
-
     }
-    
+
+    // walk backwards and decode the best sequence
+    NSMutableArray *matchSequence = [[NSMutableArray alloc] init];
+    int k = [password length] - 1;
+    while (k >= 0) {
+        DBMatch *match = [backpointers objectAtIndex:k];
+        if (![match isEqual:[NSNull null]]) {
+            [matchSequence addObject:match];
+            k = match.i - 1;
+        } else {
+            k -= 1;
+        }
+    }
+    matchSequence = [[NSMutableArray alloc] initWithArray:[[matchSequence reverseObjectEnumerator] allObjects]];
+
+    // fill in the blanks between pattern matches with bruteforce "matches"
+    // that way the match sequence fully covers the password: match1.j == match2.i - 1 for every adjacent match1, match2.
+    DBMatch* (^makeBruteforceMatch)(int i, int j) = ^ DBMatch* (int i, int j) {
+        DBMatch *match = [[DBMatch alloc] init];
+        match.pattern = DBMatchPatternBruteforce;
+        match.i = i;
+        match.j = j;
+        match.token = [password substringWithRange:NSMakeRange(i, j - i + 1)];
+        match.entropy = lg(pow(bruteforceCardinality, j - i + 1));
+        match.cardinality = bruteforceCardinality;
+        return  match;
+    };
+    k = 0;
+    NSMutableArray *matchSequenceCopy = [[NSMutableArray alloc] init];
+    for (DBMatch *match in matchSequence) {
+        int i = match.i;
+        int j = match.j;
+        if (i - k > 0) {
+            [matchSequenceCopy addObject:makeBruteforceMatch(k, i-1)];
+        }
+        k = j + 1;
+        [matchSequenceCopy addObject:match];
+    }
+    if (k < [password length]) {
+        [matchSequenceCopy addObject:makeBruteforceMatch(k, [password length] - 1)];
+        matchSequence = matchSequenceCopy;
+    }
+
+    int minEntropy = 0;
+    if ([password length] > 0) { // corner case is for an empty password ''
+        minEntropy = [[upToK objectAtIndex:[password length] - 1] intValue];
+    }
+    int crackTime = [self entropyToCrackTime:minEntropy];
+
     // final result object
     DBResult *result = [[DBResult alloc] init];
     result.password = password;
+    result.entropy = roundToXDigits(minEntropy, 3);
+    result.matchSequence = matchSequence;
+    result.crackTime = roundToXDigits(crackTime, 3);
     return result;
+}
+
+- (int)entropyToCrackTime:(int)entropy
+{
+    /*
+     threat model -- stolen hash catastrophe scenario
+
+     assumes:
+     * passwords are stored as salted hashes, different random salt per user.
+        (making rainbow attacks infeasable.)
+     * hashes and salts were stolen. attacker is guessing passwords at max rate.
+     * attacker has several CPUs at their disposal.
+
+     * for a hash function like bcrypt/scrypt/PBKDF2, 10ms per guess is a safe lower bound.
+     * (usually a guess would take longer -- this assumes fast hardware and a small work factor.)
+     * adjust for your site accordingly if you use another hash function, possibly by
+     * several orders of magnitude!
+     */
+
+    float singleGuess = .010;
+    float numAttackers = 100; // number of cores guessing in parallel.
+
+    float secondsPerGuess = singleGuess / numAttackers;
+
+    return .5 * pow(2, entropy) * secondsPerGuess; // average, not total
 }
 
 #pragma mark - Entropy calcs
@@ -72,8 +147,6 @@
             break;
     }
 
-    NSLog(@"matched word: %@", match.matchedWord);
-    NSLog(@"entropy: %d", match.entropy);
     return match.entropy;
 }
 
@@ -158,7 +231,8 @@
 
 #pragma mark - Helpers
 
-int binom(int n, int k) {
+int binom(int n, int k)
+{
     // Returns binomial coefficient (n choose k).
     // http://blog.plover.com/math/choose.html
     if (k > n) { return 0; }
@@ -177,12 +251,17 @@ float lg(float n)
     return log10f(n) / log10f(2);
 }
 
+float roundToXDigits(float number, int digits)
+{
+    return round(number * pow(10, digits)) / pow(10, digits);
+}
+
 id get(NSArray *a, int i)
 {
     if (i < 0 || i >= [a count]) {
         return 0;
     }
-    return a[i];
+    return [a objectAtIndex:i];
 }
 
 @end
