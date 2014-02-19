@@ -22,12 +22,14 @@ typedef enum {
 @property (strong, nonatomic) NSString *matchedWord;
 @property (nonatomic, assign) int rank;
 @property (strong, nonatomic) NSString *dictionaryName;
-
+@property (nonatomic, assign) BOOL l33t;
+@property (strong, nonatomic) NSDictionary *sub;
 @property (nonatomic, assign) int cardinality;
 @property (nonatomic, assign) float entropy;
 @property (nonatomic, assign) float baseEntropy;
 @property (nonatomic, assign) float upperCaseEntropy;
-@property (nonatomic, assign) float l33tEntropy;
+@property (nonatomic, assign) int l33tEntropy;
+@property (strong, nonatomic) NSString *subDisplay;
 
 - (NSString *)patternString;
 

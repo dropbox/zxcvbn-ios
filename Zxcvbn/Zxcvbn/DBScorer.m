@@ -22,7 +22,7 @@
      minimum entropy. O(nm) dp alg for length-n password with m candidate matches.
      */
     
-    float bruteforceCardinality = [self calcBruteforceCardinality:password];
+    float bruteforceCardinality = [self calcBruteforceCardinality:password]; // e.g. 26 for lowercase
     
     NSMutableArray *upToK = [[NSMutableArray alloc] init]; // minimum entropy up to k.
     NSMutableArray *backpointers = [[NSMutableArray alloc] init]; // for the optimal sequence of matches up to k, holds the final match (match.j == k). null means the sequence ends w/ a brute-force character.
@@ -70,7 +70,7 @@
         match.token = [password substringWithRange:NSMakeRange(i, j - i + 1)];
         match.entropy = lg(pow(bruteforceCardinality, j - i + 1));
         match.cardinality = bruteforceCardinality;
-        return  match;
+        return match;
     };
     k = 0;
     NSMutableArray *matchSequenceCopy = [[NSMutableArray alloc] init];
@@ -100,6 +100,8 @@
     result.entropy = roundToXDigits(minEntropy, 3);
     result.matchSequence = matchSequence;
     result.crackTime = roundToXDigits(crackTime, 3);
+    // result.crackTimeDisplay
+    result.score = [self crackTimeToScore:crackTime];
     return result;
 }
 
@@ -128,8 +130,24 @@
     return .5 * pow(2, entropy) * secondsPerGuess; // average, not total
 }
 
-#pragma mark - Entropy calcs
-#pragma -- one function per match pattern
+- (int)crackTimeToScore:(float)seconds
+{
+    if (seconds < pow(10, 2)) {
+        return 0;
+    }
+    if (seconds < pow(10, 4)) {
+        return 1;
+    }
+    if (seconds < pow(10, 6)) {
+        return 2;
+    }
+    if (seconds < pow(10, 8)) {
+        return 3;
+    }
+    return 4;
+}
+
+#pragma mark - entropy calcs -- one function per match pattern
 
 - (float)calcEntropy:(DBMatch *)match
 {
@@ -197,13 +215,28 @@
     return lg(possibilities);
 }
 
-- (float)extraL33tEntropy:(DBMatch *)match
+- (int)extraL33tEntropy:(DBMatch *)match
 {
-    // TODO
-    return 0.0;
+    if (!match.l33t) {
+        return 0;
+    }
+
+    int possibilities = 0;
+
+    for (NSString *subbed in [match.sub allKeys]) {
+        NSString *unsubbed = [match.sub objectForKey:subbed];
+        int subLength = [[match.token componentsSeparatedByString:subbed] count] - 1;
+        int unsubLength = [[match.token componentsSeparatedByString:unsubbed] count] - 1;
+        for (int i = 0; i < MIN(unsubLength, subLength) + 1; i++) {
+            possibilities += binom(unsubLength + subLength, i);
+        }
+    }
+
+    // corner: return 1 bit for single-letter subs, like 4pple -> apple, instead of 0.
+    return possibilities <= 1 ? 1 : lg(possibilities);
 }
 
-#pragma mark - Utilities
+#pragma mark - utilities
 
 - (float)calcBruteforceCardinality:(NSString *)password
 {
@@ -228,8 +261,6 @@
 
     return digits + upper + lower + symbols;
 }
-
-#pragma mark - Helpers
 
 float binom(int n, int k)
 {

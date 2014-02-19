@@ -69,7 +69,7 @@
         NSLog(@"entropy: %f", result.entropy);
         NSLog(@"crack time (seconds): %f", result.crackTime);
         //crack time (display):	instant
-        //score from 0 to 4:	0
+        NSLog(@"score from 0 to 4: %d", result.score);
         //calculation time (ms):	7
 
         NSLog(@"\n");
@@ -87,6 +87,10 @@
                 NSLog(@"base-entropy: %f", match.baseEntropy);
             if (match.upperCaseEntropy)
                 NSLog(@"upper-entropy: %f", match.upperCaseEntropy);
+            if (match.l33tEntropy)
+                NSLog(@"l33t-entropy: %d", match.l33tEntropy);
+            if (match.sub)
+                NSLog(@"l33t subs: %@", match.subDisplay);
             if (match.cardinality)
                 NSLog(@"cardinality: %d", match.cardinality);
         }
