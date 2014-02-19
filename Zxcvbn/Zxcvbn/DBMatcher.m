@@ -8,8 +8,6 @@
 
 #import "DBMatcher.h"
 
-#import "DBMatch.h"
-
 typedef NSArray* (^MatcherBlock)(NSString *password);
 
 @interface DBMatcher ()
@@ -285,6 +283,20 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
         string = [string stringByReplacingOccurrencesOfString:key withString:[chrMap objectForKey:key]];
     }
     return string;
+}
+
+@end
+
+
+@implementation DBMatch
+
+- (NSString *)patternString
+{
+    NSArray *patterns = @[
+                          @"dictionary",
+                          @"bruteforce"
+                          ];
+    return [patterns objectAtIndex:self.pattern];
 }
 
 @end

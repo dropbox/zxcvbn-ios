@@ -8,9 +8,7 @@
 
 #import "DBScorer.h"
 
-#import "DBMatch.h"
 #import "DBMatcher.h"
-#import "DBResult.h"
 
 @implementation DBScorer
 
@@ -294,5 +292,10 @@ id get(NSArray *a, int i)
     }
     return [a objectAtIndex:i];
 }
+
+@end
+
+
+@implementation DBResult
 
 @end

@@ -22,7 +22,6 @@
 		08F59FA818A8830300FB34D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F59F8718A8830300FB34D6 /* UIKit.framework */; };
 		08F59FB018A8830300FB34D6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FAE18A8830300FB34D6 /* InfoPlist.strings */; };
 		08F59FB218A8830300FB34D6 /* ZxcvbnTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F59FB118A8830300FB34D6 /* ZxcvbnTests.m */; };
-		08F59FC018A8832800FB34D6 /* DBResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F59FBD18A8832800FB34D6 /* DBResult.m */; };
 		08F59FC118A8832800FB34D6 /* DBZxcvbn.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F59FBF18A8832800FB34D6 /* DBZxcvbn.m */; };
 		08F59FC418A885EE00FB34D6 /* DBMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F59FC318A885EE00FB34D6 /* DBMatcher.m */; };
 		08F59FC718A887BB00FB34D6 /* DBScorer.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F59FC618A887BB00FB34D6 /* DBScorer.m */; };
@@ -61,7 +60,6 @@
 		08F5A01018A88BB600FB34D6 /* us_census_2000_surnames.txt in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FF118A88BB600FB34D6 /* us_census_2000_surnames.txt */; };
 		08F5A01418A88C0800FB34D6 /* adjacency_graphs.json in Resources */ = {isa = PBXBuildFile; fileRef = 08F5A01218A88C0800FB34D6 /* adjacency_graphs.json */; };
 		08F5A01518A88C0800FB34D6 /* frequency_lists.json in Resources */ = {isa = PBXBuildFile; fileRef = 08F5A01318A88C0800FB34D6 /* frequency_lists.json */; };
-		4CD48BFB18A9A69F00B100B1 /* DBMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD48BFA18A9A69F00B100B1 /* DBMatch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,8 +93,6 @@
 		08F59FAD18A8830300FB34D6 /* ZxcvbnTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZxcvbnTests-Info.plist"; sourceTree = "<group>"; };
 		08F59FAF18A8830300FB34D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		08F59FB118A8830300FB34D6 /* ZxcvbnTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZxcvbnTests.m; sourceTree = "<group>"; };
-		08F59FBC18A8832800FB34D6 /* DBResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBResult.h; sourceTree = "<group>"; };
-		08F59FBD18A8832800FB34D6 /* DBResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBResult.m; sourceTree = "<group>"; };
 		08F59FBE18A8832800FB34D6 /* DBZxcvbn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBZxcvbn.h; sourceTree = "<group>"; };
 		08F59FBF18A8832800FB34D6 /* DBZxcvbn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBZxcvbn.m; sourceTree = "<group>"; };
 		08F59FC218A885EE00FB34D6 /* DBMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMatcher.h; sourceTree = "<group>"; };
@@ -138,8 +134,6 @@
 		08F59FF118A88BB600FB34D6 /* us_census_2000_surnames.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = us_census_2000_surnames.txt; sourceTree = "<group>"; };
 		08F5A01218A88C0800FB34D6 /* adjacency_graphs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = adjacency_graphs.json; sourceTree = "<group>"; };
 		08F5A01318A88C0800FB34D6 /* frequency_lists.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = frequency_lists.json; sourceTree = "<group>"; };
-		4CD48BF718A9A52D00B100B1 /* DBMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMatch.h; sourceTree = "<group>"; };
-		4CD48BFA18A9A69F00B100B1 /* DBMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMatch.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,12 +241,8 @@
 				08F59FD218A88BB600FB34D6 /* data */,
 				08F5A01118A88C0800FB34D6 /* generated */,
 				08F59FCD18A88B3A00FB34D6 /* scripts */,
-				4CD48BF718A9A52D00B100B1 /* DBMatch.h */,
-				4CD48BFA18A9A69F00B100B1 /* DBMatch.m */,
 				08F59FC218A885EE00FB34D6 /* DBMatcher.h */,
 				08F59FC318A885EE00FB34D6 /* DBMatcher.m */,
-				08F59FBC18A8832800FB34D6 /* DBResult.h */,
-				08F59FBD18A8832800FB34D6 /* DBResult.m */,
 				08F59FC518A887BB00FB34D6 /* DBScorer.h */,
 				08F59FC618A887BB00FB34D6 /* DBScorer.m */,
 				08F59FBE18A8832800FB34D6 /* DBZxcvbn.h */,
@@ -456,9 +446,7 @@
 				08F59F9418A8830300FB34D6 /* DBAppDelegate.m in Sources */,
 				08F59F9D18A8830300FB34D6 /* DBViewController.m in Sources */,
 				08F59FC718A887BB00FB34D6 /* DBScorer.m in Sources */,
-				08F59FC018A8832800FB34D6 /* DBResult.m in Sources */,
 				08F59F9018A8830300FB34D6 /* main.m in Sources */,
-				4CD48BFB18A9A69F00B100B1 /* DBMatch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

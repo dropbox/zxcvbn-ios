@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Dropbox. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
 @interface DBViewController : UIViewController
 
 @end
