@@ -14,7 +14,7 @@
 
 
 typedef enum {
-    DBMatchPatternDictionary,
+    DBMatchPatternDictionary = 0,
     DBMatchPatternBruteforce,
 } DBMatchPattern;
 
