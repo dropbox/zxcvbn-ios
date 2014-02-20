@@ -62,7 +62,7 @@
     // that way the match sequence fully covers the password: match1.j == match2.i - 1 for every adjacent match1, match2.
     DBMatch* (^makeBruteforceMatch)(int i, int j) = ^ DBMatch* (int i, int j) {
         DBMatch *match = [[DBMatch alloc] init];
-        match.pattern = DBMatchPatternBruteforce;
+        match.pattern = @"bruteforce";
         match.i = i;
         match.j = j;
         match.token = [password substringWithRange:NSMakeRange(i, j - i + 1)];
@@ -153,17 +153,50 @@
         // a match's entropy doesn't change. cache it.
         return match.entropy;
     }
-    
-    switch (match.pattern) {
-        case DBMatchPatternDictionary:
-            match.entropy = [self dictionaryEntropy:match];
-            break;
-        
-        default:
-            break;
+
+    if ([match.pattern isEqualToString:@"spatial"]) {
+        match.entropy = [self spatialEntropy:match];
+    } else if ([match.pattern isEqualToString:@"dictionary"]) {
+        match.entropy = [self dictionaryEntropy:match];
     }
 
     return match.entropy;
+}
+
+- (float)spatialEntropy:(DBMatch *)match
+{
+    DBMatcher *matcher = [[DBMatcher alloc] init];
+    int s;
+    int d;
+    if ([@[@"qwerty", @"dvorak"] containsObject:match.graph]) {
+        s = matcher.keyboardStartingPositions;
+        d = matcher.keyboardAverageDegree;
+    } else {
+        s = matcher.keypadStartingPositions;
+        d = matcher.keypadAverageDegree;
+    }
+    int possibilities = 0;
+    int L = [match.token length];
+    int t = match.turns;
+    for (int i = 2; i <= L; i++) {
+        int possibleTurns = MIN(t, i - 1);
+        for (int j = 1; j <= possibleTurns; j++) {
+            possibilities += binom(i - 1, j - 1) * s * pow(d, j);
+        }
+    }
+    float entropy = lg(possibilities);
+    // add extra entropy for shifted keys. (% instead of 5, A instead of a.)
+    // math is similar to extra entropy from uppercase letters in dictionary matches.
+    if (match.shiftedCount) {
+        int S = match.shiftedCount;
+        int U = [match.token length] - match.shiftedCount; // unshifted count
+        int possibilities = 0;
+        for (int i = 0; i <= MIN(S, U); i++) {
+            possibilities += binom(S + U, i);
+        }
+        entropy += lg(possibilities);
+    }
+    return entropy;
 }
 
 - (float)dictionaryEntropy:(DBMatch *)match
@@ -207,7 +240,7 @@
     }
 
     float possibilities = 0.0;
-    for (int i = 0; i < MIN(uppercaseLength, lowercaseLength); i++) {
+    for (int i = 0; i <= MIN(uppercaseLength, lowercaseLength); i++) {
         possibilities += binom(uppercaseLength + lowercaseLength, i);
     }
     return lg(possibilities);
@@ -225,7 +258,7 @@
         NSString *unsubbed = [match.sub objectForKey:subbed];
         int subLength = [[match.token componentsSeparatedByString:subbed] count] - 1;
         int unsubLength = [[match.token componentsSeparatedByString:unsubbed] count] - 1;
-        for (int i = 0; i < MIN(unsubLength, subLength) + 1; i++) {
+        for (int i = 0; i <= MIN(unsubLength, subLength); i++) {
             possibilities += binom(unsubLength + subLength, i);
         }
     }
@@ -267,7 +300,7 @@ float binom(int n, int k)
     if (k > n) { return 0; }
     if (k == 0) { return 1; }
     float result = 1;
-    for (int denom = 1; denom < k + 1; denom++) {
+    for (int denom = 1; denom <= k; denom++) {
         result *= n;
         result /= denom;
         n -= 1;
@@ -277,7 +310,7 @@ float binom(int n, int k)
 
 float lg(float n)
 {
-    return log10f(n) / log10f(2);
+    return log2f(n);
 }
 
 float roundToXDigits(float number, int digits)

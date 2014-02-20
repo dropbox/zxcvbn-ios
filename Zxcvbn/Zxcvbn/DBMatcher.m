@@ -13,6 +13,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 @interface DBMatcher ()
 
 @property (nonatomic, strong) NSArray *dictionaryMatchers;
+@property (nonatomic, strong) NSDictionary *graphs;
 @property (nonatomic, strong) NSMutableArray *matchers;
 
 @end
@@ -25,9 +26,17 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 
     if (self != nil) {
         self.dictionaryMatchers = [self loadFrequencyLists];
+        self.graphs = [self loadAdjacencyGraphs];
+
+        self.keyboardAverageDegree = [self calcAverageDegree:[self.graphs objectForKey:@"qwerty"]];
+        self.keypadAverageDegree = [self calcAverageDegree:[self.graphs objectForKey:@"keypad"]]; // slightly different for keypad/mac keypad, but close enough
+
+        self.keyboardStartingPositions = [[self.graphs objectForKey:@"qwerty"] count];
+        self.keypadStartingPositions = [[self.graphs objectForKey:@"keypad"] count];
 
         self.matchers = [[NSMutableArray alloc] initWithArray:self.dictionaryMatchers];
         [self.matchers addObject:[self l33tMatch]];
+        [self.matchers addObject:[self spatialMatch]];
     }
 
     return self;
@@ -44,7 +53,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
     }
 
     return [matches sortedArrayUsingDescriptors: @[[[NSSortDescriptor alloc] initWithKey:@"i" ascending:YES],
-                                                   [[NSSortDescriptor alloc] initWithKey:@"j" ascending:YES]]];
+                                                   [[NSSortDescriptor alloc] initWithKey:@"j" ascending:NO]]];
 }
 
 #pragma mark - dictionary match (common passwords, english, last names, etc)
@@ -62,7 +71,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 
             if (rank != nil) {
                 DBMatch *match = [[DBMatch alloc] init];
-                match.pattern = DBMatchPatternDictionary;
+                match.pattern = @"dictionary";
                 match.i = i;
                 match.j = j;
                 match.token = [password substringWithRange:NSMakeRange(i, j - i + 1)];
@@ -130,6 +139,39 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
     return dictionaryMatchers;
 }
 
+- (NSDictionary *)loadAdjacencyGraphs
+{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"adjacency_graphs" ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+
+    NSError *error;
+    id json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+
+    if (error == nil) {
+        return (NSDictionary *)json;
+    } else {
+        NSLog(@"Error parsing adjacency graphs: %@", error);
+    }
+
+    return nil;
+}
+
+- (float)calcAverageDegree:(NSDictionary *)graph
+{
+    float average = 0.0;
+    for (NSString *key in graph) {
+        NSMutableArray *neighbors = [[NSMutableArray alloc] init];
+        for (NSString *n in (NSArray *)[graph objectForKey:key]) {
+            if (n != (id)[NSNull null]) {
+                [neighbors addObject:n];
+            }
+        }
+        average += [neighbors count];
+    }
+    average /= [graph count];
+    return average;
+}
+
 #pragma mark - dictionary match with common l33t substitutions
 
 - (NSDictionary *)l33tTable
@@ -155,7 +197,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
     // makes a pruned copy of l33t_table that only includes password's possible substitutions
     NSMutableDictionary *filtered = [[NSMutableDictionary alloc] init];
 
-    for (NSString *letter in [[self l33tTable] allKeys]) {
+    for (NSString *letter in [self l33tTable]) {
         NSArray *subs = [[self l33tTable] objectForKey:letter];
         NSMutableArray *relevantSubs = [[NSMutableArray alloc] initWithCapacity:[subs count]];
         for (NSString *sub in subs) {
@@ -252,7 +294,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 
                     NSMutableDictionary *matchSub = [[NSMutableDictionary alloc] init]; // subset of mappings in sub that are in use for this match
                     NSMutableArray *subDisplay = [[NSMutableArray alloc] init];
-                    for (NSString *subbedChr in [sub allKeys]) {
+                    for (NSString *subbedChr in sub) {
                         NSString *chr = [sub objectForKey:subbedChr];
                         if ([token rangeOfString:subbedChr].location != NSNotFound) {
                             [matchSub setObject:chr forKey:subbedChr];
@@ -275,11 +317,94 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
     return block;
 }
 
+#pragma mark - spatial match (qwerty/dvorak/keypad)
+
+- (MatcherBlock)spatialMatch
+{
+    MatcherBlock block = ^ NSArray* (NSString *password) {
+        NSMutableArray *matches = [[NSMutableArray alloc] init];
+
+        for (NSString *graphName in self.graphs) {
+            NSDictionary *graph = [self.graphs objectForKey:graphName];
+            [matches addObjectsFromArray:[self spaticalMatchHelper:password graph:graph graphName:graphName]];
+        }
+
+        return matches;
+    };
+
+    return block;
+}
+
+- (NSArray *)spaticalMatchHelper:(NSString *)password graph:(NSDictionary *)graph graphName:(NSString *)graphName
+{
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+    
+    int i = 0;
+    while (i < [password length] - 1) {
+        int j = i + 1;
+        int lastDirection = -1;
+        int turns = 0;
+        int shiftedCount = 0;
+        while (YES) {
+            NSString *prevChar = [password substringWithRange:NSMakeRange(j-1, 1)];
+            BOOL found = NO;
+            int foundDirection = -1;
+            int curDirection = -1;
+            NSArray *adjacents = [[graph allKeys] containsObject:prevChar] ? [graph objectForKey:prevChar] : @[];
+            // consider growing pattern by one character if j hasn't gone over the edge.
+            if (j < [password length]) {
+                NSString *curChar = [password substringWithRange:NSMakeRange(j, 1)];
+                for (NSString *adj in adjacents) {
+                    curDirection += 1;
+                    if (adj != (id)[NSNull null] && [adj rangeOfString:curChar].location != NSNotFound) {
+                        found = YES;
+                        foundDirection = curDirection;
+                        if ([adj rangeOfString:curChar].location == 1) {
+                            // index 1 in the adjacency means the key is shifted, 0 means unshifted: A vs a, % vs 5, etc.
+                            // for example, 'q' is adjacent to the entry '2@'. @ is shifted w/ index 1, 2 is unshifted.
+                            shiftedCount += 1;
+                        }
+                        if (lastDirection != foundDirection) {
+                            // adding a turn is correct even in the initial case when last_direction is null:
+                            // every spatial pattern starts with a turn.
+                            turns += 1;
+                            lastDirection = foundDirection;
+                        }
+                        break;
+                    }
+                }
+            }
+            // if the current pattern continued, extend j and try to grow again
+            if (found) {
+                j += 1;
+            // otherwise push the pattern discovered so far, if any...
+            } else {
+                if (j - i > 2) { // don't consider length 1 or 2 chains.
+                    DBMatch *match = [[DBMatch alloc] init];
+                    match.pattern = @"spatial";
+                    match.i = i;
+                    match.j = j - 1;
+                    match.token = [password substringWithRange:NSMakeRange(i, j - i)];
+                    match.graph = graphName;
+                    match.turns = turns;
+                    match.shiftedCount = shiftedCount;
+                    [result addObject:match];
+                }
+                // ...and then start a new search for the rest of the password.
+                i = j;
+                break;
+            }
+        }
+    }
+
+    return result;
+}
+
 #pragma mark - utilities
 
 - (NSString *)translate:(NSString *)string characterMap:(NSDictionary *)chrMap
 {
-    for (NSString *key in [chrMap allKeys]) {
+    for (NSString *key in chrMap) {
         string = [string stringByReplacingOccurrencesOfString:key withString:[chrMap objectForKey:key]];
     }
     return string;
@@ -289,14 +414,5 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 
 
 @implementation DBMatch
-
-- (NSString *)patternString
-{
-    NSArray *patterns = @[
-                          @"dictionary",
-                          @"bruteforce"
-                          ];
-    return [patterns objectAtIndex:self.pattern];
-}
 
 @end

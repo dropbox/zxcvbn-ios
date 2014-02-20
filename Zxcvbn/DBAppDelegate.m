@@ -74,25 +74,36 @@
 
         NSLog(@"\n");
         NSLog(@"match sequence:");
+
         for (DBMatch *match in result.matchSequence) {
+
             NSLog(@"\n");
             NSLog(@"'%@'", match.token);
-            NSLog(@"pattern: %@", [match patternString]);
+            NSLog(@"pattern: %@", match.pattern);
             NSLog(@"entropy: %f", match.entropy);
-            if (match.dictionaryName)
+
+            if ([match.pattern isEqualToString:@"dictionary"]) {
                 NSLog(@"dict-name: %@", match.dictionaryName);
-            if (match.rank)
                 NSLog(@"rank: %d", match.rank);
-            if (match.baseEntropy)
                 NSLog(@"base-entropy: %f", match.baseEntropy);
-            if (match.upperCaseEntropy)
                 NSLog(@"upper-entropy: %f", match.upperCaseEntropy);
-            if (match.l33tEntropy)
-                NSLog(@"l33t-entropy: %d", match.l33tEntropy);
-            if (match.sub)
-                NSLog(@"l33t subs: %@", match.subDisplay);
-            if (match.cardinality)
+            }
+
+            if ([match.pattern isEqualToString:@"bruteforce"]) {
                 NSLog(@"cardinality: %d", match.cardinality);
+            }
+
+            if (match.l33t) {
+                NSLog(@"l33t-entropy: %d", match.l33tEntropy);
+                NSLog(@"l33t subs: %@", match.subDisplay);
+                NSLog(@"un-l33ted: %@", match.matchedWord);
+            }
+
+            if ([match.pattern isEqualToString:@"spatial"]) {
+                NSLog(@"graph: %@", match.graph);
+                NSLog(@"turns: %d", match.turns);
+                NSLog(@"shifted keys: %d", match.shiftedCount);
+            }
         }
 
         NSLog(@"\n\n");

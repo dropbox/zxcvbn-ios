@@ -8,34 +8,40 @@
 
 @interface DBMatcher : NSObject
 
+@property (nonatomic, assign) int keyboardAverageDegree;
+@property (nonatomic, assign) int keypadAverageDegree;
+@property (nonatomic, assign) int keyboardStartingPositions;
+@property (nonatomic, assign) int keypadStartingPositions;
+
 - (NSArray *)omnimatch:(NSString *)password;
 
 @end
 
-
-typedef enum {
-    DBMatchPatternDictionary = 0,
-    DBMatchPatternBruteforce,
-} DBMatchPattern;
-
 @interface DBMatch : NSObject
 
-@property (nonatomic, assign) DBMatchPattern pattern;
+@property (nonatomic, assign) NSString *pattern;
+@property (strong, nonatomic) NSString *token;
 @property (nonatomic, assign) int i;
 @property (nonatomic, assign) int j;
-@property (strong, nonatomic) NSString *token;
-@property (strong, nonatomic) NSString *matchedWord;
-@property (nonatomic, assign) int rank;
-@property (strong, nonatomic) NSString *dictionaryName;
-@property (nonatomic, assign) BOOL l33t;
-@property (strong, nonatomic) NSDictionary *sub;
-@property (nonatomic, assign) int cardinality;
 @property (nonatomic, assign) float entropy;
+@property (nonatomic, assign) int cardinality;
+
+// Dictionary
+@property (strong, nonatomic) NSString *matchedWord;
+@property (strong, nonatomic) NSString *dictionaryName;
+@property (nonatomic, assign) int rank;
 @property (nonatomic, assign) float baseEntropy;
 @property (nonatomic, assign) float upperCaseEntropy;
-@property (nonatomic, assign) int l33tEntropy;
-@property (strong, nonatomic) NSString *subDisplay;
 
-- (NSString *)patternString;
+// l33t
+@property (nonatomic, assign) BOOL l33t;
+@property (strong, nonatomic) NSDictionary *sub;
+@property (strong, nonatomic) NSString *subDisplay;
+@property (nonatomic, assign) int l33tEntropy;
+
+// Spatial
+@property (strong, nonatomic) NSString *graph;
+@property (nonatomic, assign) int turns;
+@property (nonatomic, assign) int shiftedCount;
 
 @end
