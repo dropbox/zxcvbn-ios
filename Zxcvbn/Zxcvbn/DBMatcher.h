@@ -44,4 +44,7 @@
 @property (nonatomic, assign) int turns;
 @property (nonatomic, assign) int shiftedCount;
 
+// Repeat
+@property (strong, nonatomic) NSString *repeatedChar;
+
 @end

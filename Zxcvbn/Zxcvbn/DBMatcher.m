@@ -36,6 +36,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 
         self.matchers = [[NSMutableArray alloc] initWithArray:self.dictionaryMatchers];
         [self.matchers addObject:[self l33tMatch]];
+        [self.matchers addObject:[self repeatMatch]];
         [self.matchers addObject:[self spatialMatch]];
     }
 
@@ -326,7 +327,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 
         for (NSString *graphName in self.graphs) {
             NSDictionary *graph = [self.graphs objectForKey:graphName];
-            [matches addObjectsFromArray:[self spaticalMatchHelper:password graph:graph graphName:graphName]];
+            [matches addObjectsFromArray:[self spatialMatchHelper:password graph:graph graphName:graphName]];
         }
 
         return matches;
@@ -335,7 +336,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
     return block;
 }
 
-- (NSArray *)spaticalMatchHelper:(NSString *)password graph:(NSDictionary *)graph graphName:(NSString *)graphName
+- (NSArray *)spatialMatchHelper:(NSString *)password graph:(NSDictionary *)graph graphName:(NSString *)graphName
 {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     
@@ -399,6 +400,42 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 
     return result;
 }
+
+#pragma mark - repeats (aaa) and sequences (abcdef)
+
+- (MatcherBlock)repeatMatch
+{
+    MatcherBlock block = ^ NSArray* (NSString *password) {
+        NSMutableArray *result = [[NSMutableArray alloc] init];
+        int i = 0;
+        while (i < [password length]) {
+            int j = i + 1;
+            while (YES) {
+                NSString *prevChar = [password substringWithRange:NSMakeRange(j - 1, 1)];
+                NSString *curChar = j < [password length] ? [password substringWithRange:NSMakeRange(j, 1)] : @"";
+                if ([prevChar isEqualToString:curChar]) {
+                    j += 1;
+                } else {
+                    if (j - i > 2) { // don't consider length 1 or 2 chains.
+                        DBMatch *match = [[DBMatch alloc] init];
+                        match.pattern = @"repeat";
+                        match.i = i;
+                        match.j = j - 1;
+                        match.token = [password substringWithRange:NSMakeRange(i, j - i)];
+                        match.repeatedChar = [password substringWithRange:NSMakeRange(i, 1)];
+                        [result addObject:match];
+                    }
+                    break;
+                }
+            }
+            i = j;
+        }
+        return result;
+    };
+
+    return block;
+}
+
 
 #pragma mark - utilities
 

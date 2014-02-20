@@ -154,13 +154,21 @@
         return match.entropy;
     }
 
-    if ([match.pattern isEqualToString:@"spatial"]) {
+    if ([match.pattern isEqualToString:@"repeat"]) {
+        match.entropy = [self repeatEntropy:match];
+    } else if ([match.pattern isEqualToString:@"spatial"]) {
         match.entropy = [self spatialEntropy:match];
     } else if ([match.pattern isEqualToString:@"dictionary"]) {
         match.entropy = [self dictionaryEntropy:match];
     }
 
     return match.entropy;
+}
+
+- (float)repeatEntropy:(DBMatch *)match
+{
+    float cardinality = [self calcBruteforceCardinality:match.token];
+    return lg(cardinality * [match.token length]);
 }
 
 - (float)spatialEntropy:(DBMatch *)match

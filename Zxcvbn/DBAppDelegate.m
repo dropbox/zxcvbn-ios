@@ -104,6 +104,10 @@
                 NSLog(@"turns: %d", match.turns);
                 NSLog(@"shifted keys: %d", match.shiftedCount);
             }
+
+            if ([match.pattern isEqualToString:@"repeat"]) {
+                NSLog(@"repeat-char: '%@'", match.repeatedChar);
+            }
         }
 
         NSLog(@"\n\n");
