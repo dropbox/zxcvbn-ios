@@ -47,4 +47,9 @@
 // Repeat
 @property (strong, nonatomic) NSString *repeatedChar;
 
+// Sequence
+@property (strong, nonatomic) NSString *sequenceName;
+@property (nonatomic, assign) int sequenceSpace;
+@property (nonatomic, assign) BOOL ascending;
+
 @end

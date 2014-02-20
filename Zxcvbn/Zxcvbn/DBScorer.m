@@ -156,6 +156,8 @@
 
     if ([match.pattern isEqualToString:@"repeat"]) {
         match.entropy = [self repeatEntropy:match];
+    } else if ([match.pattern isEqualToString:@"sequence"]) {
+        match.entropy = [self sequenceEntropy:match];
     } else if ([match.pattern isEqualToString:@"spatial"]) {
         match.entropy = [self spatialEntropy:match];
     } else if ([match.pattern isEqualToString:@"dictionary"]) {
@@ -169,6 +171,28 @@
 {
     float cardinality = [self calcBruteforceCardinality:match.token];
     return lg(cardinality * [match.token length]);
+}
+
+- (float)sequenceEntropy:(DBMatch *)match
+{
+    NSString *firstChr = [match.token substringToIndex:1];
+    float baseEntropy = 0;
+    if ([@[@"a", @"1"] containsObject:firstChr]) {
+        baseEntropy = 1;
+    } else {
+        unichar chr = [firstChr characterAtIndex:0];
+        if ([[NSCharacterSet decimalDigitCharacterSet] characterIsMember:chr]) {
+            baseEntropy = lg(10); // digits
+        } else if ([[NSCharacterSet lowercaseLetterCharacterSet] characterIsMember:chr]) {
+            baseEntropy = lg(26); // lower
+        } else {
+            baseEntropy = lg(26) + 1; // extra bit for uppercase
+        }
+    }
+    if (match.ascending == NO) {
+        baseEntropy += 1; // extra bit for descending instead of ascending
+    }
+    return baseEntropy + lg([match.token length]);
 }
 
 - (float)spatialEntropy:(DBMatch *)match

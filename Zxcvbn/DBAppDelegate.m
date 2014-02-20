@@ -108,6 +108,16 @@
             if ([match.pattern isEqualToString:@"repeat"]) {
                 NSLog(@"repeat-char: '%@'", match.repeatedChar);
             }
+
+            if ([match.pattern isEqualToString:@"sequence"]) {
+                NSLog(@"sequence-name: %@", match.sequenceName);
+                NSLog(@"sequence-size: %d", match.sequenceSpace);
+                if (match.ascending) {
+                    NSLog(@"ascending: true");
+                } else {
+                    NSLog(@"ascending: false");
+                }
+            }
         }
 
         NSLog(@"\n\n");

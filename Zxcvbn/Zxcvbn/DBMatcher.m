@@ -35,9 +35,10 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
         self.keypadStartingPositions = [[self.graphs objectForKey:@"keypad"] count];
 
         self.matchers = [[NSMutableArray alloc] initWithArray:self.dictionaryMatchers];
-        [self.matchers addObject:[self l33tMatch]];
-        [self.matchers addObject:[self repeatMatch]];
-        [self.matchers addObject:[self spatialMatch]];
+        [self.matchers addObjectsFromArray:@[[self l33tMatch],
+                                             // digits_match, year_match, date_match,
+                                             [self repeatMatch], [self sequenceMatch],
+                                             [self spatialMatch]]];
     }
 
     return self;
@@ -356,19 +357,19 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
             if (j < [password length]) {
                 NSString *curChar = [password substringWithRange:NSMakeRange(j, 1)];
                 for (NSString *adj in adjacents) {
-                    curDirection += 1;
+                    curDirection++;
                     if (adj != (id)[NSNull null] && [adj rangeOfString:curChar].location != NSNotFound) {
                         found = YES;
                         foundDirection = curDirection;
                         if ([adj rangeOfString:curChar].location == 1) {
                             // index 1 in the adjacency means the key is shifted, 0 means unshifted: A vs a, % vs 5, etc.
                             // for example, 'q' is adjacent to the entry '2@'. @ is shifted w/ index 1, 2 is unshifted.
-                            shiftedCount += 1;
+                            shiftedCount++;
                         }
                         if (lastDirection != foundDirection) {
                             // adding a turn is correct even in the initial case when last_direction is null:
                             // every spatial pattern starts with a turn.
-                            turns += 1;
+                            turns++;
                             lastDirection = foundDirection;
                         }
                         break;
@@ -377,7 +378,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
             }
             // if the current pattern continued, extend j and try to grow again
             if (found) {
-                j += 1;
+                j ++;
             // otherwise push the pattern discovered so far, if any...
             } else {
                 if (j - i > 2) { // don't consider length 1 or 2 chains.
@@ -414,7 +415,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
                 NSString *prevChar = [password substringWithRange:NSMakeRange(j - 1, 1)];
                 NSString *curChar = j < [password length] ? [password substringWithRange:NSMakeRange(j, 1)] : @"";
                 if ([prevChar isEqualToString:curChar]) {
-                    j += 1;
+                    j++;
                 } else {
                     if (j - i > 2) { // don't consider length 1 or 2 chains.
                         DBMatch *match = [[DBMatch alloc] init];
@@ -436,6 +437,68 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
     return block;
 }
 
+- (MatcherBlock)sequenceMatch
+{
+    NSDictionary *sequences = @{
+                                @"lower": @"abcdefghijklmnopqrstuvwxyz",
+                                @"upper": @"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                                @"digits": @"01234567890",
+                                };
+
+    MatcherBlock block = ^ NSArray* (NSString *password) {
+        NSMutableArray *result = [[NSMutableArray alloc] init];
+        int i = 0;
+        while (i < [password length]) {
+            int j = i + 1;
+            NSString *seq = nil; // either lower, upper, or digits
+            NSString *seqName = nil;
+            int seqDirection = 0; // 1 for ascending seq abcd, -1 for dcba
+            for (NSString *seqCandidateName in sequences) {
+                NSString *seqCandidate = [sequences objectForKey:seqCandidateName];
+                int iN = [seqCandidate rangeOfString:[password substringWithRange:NSMakeRange(i, 1)]].location;
+                int jN = j < [password length] ? [seqCandidate rangeOfString:[password substringWithRange:NSMakeRange(j, 1)]].location : NSNotFound;
+                if (iN != NSNotFound && jN != NSNotFound) {
+                    int direction = jN - iN;
+                    if (direction == 1 || direction == -1) {
+                        seq = seqCandidate;
+                        seqName = seqCandidateName;
+                        seqDirection = direction;
+                        break;
+                    }
+                }
+            }
+            if (seq) {
+                while (YES) {
+                    NSString *prevChar = [password substringWithRange:NSMakeRange(j - 1, 1)];
+                    NSString *curChar = j < [password length] ? [password substringWithRange:NSMakeRange(j, 1)] : nil;
+                    int prevN = [seq rangeOfString:prevChar].location;
+                    int curN = curChar == nil ? NSNotFound : [seq rangeOfString:curChar].location;
+                    if (curN - prevN == seqDirection) {
+                        j++;
+                    } else {
+                        if (j - i > 2) { // don't consider length 1 or 2 chains.
+                            DBMatch *match = [[DBMatch alloc] init];
+                            match.pattern = @"sequence";
+                            match.i = i;
+                            match.j = j - 1;
+                            match.token = [password substringWithRange:NSMakeRange(i, j - i)];
+                            match.sequenceName = seqName;
+                            match.sequenceSpace = [seq length];
+                            match.ascending = seqDirection == 1;
+                            [result addObject:match];
+                        }
+                        break;
+                    }
+                }
+            }
+            i = j;
+        }
+
+        return result;
+    };
+
+    return block;
+}
 
 #pragma mark - utilities
 
