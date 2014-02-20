@@ -52,4 +52,10 @@
 @property (nonatomic, assign) int sequenceSpace;
 @property (nonatomic, assign) BOOL ascending;
 
+// Date
+@property (nonatomic, assign) int day;
+@property (nonatomic, assign) int month;
+@property (nonatomic, assign) int year;
+@property (strong, nonatomic) NSString *separator;
+
 @end

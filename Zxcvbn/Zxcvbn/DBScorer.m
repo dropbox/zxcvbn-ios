@@ -98,7 +98,7 @@
     result.entropy = roundToXDigits(minEntropy, 3);
     result.matchSequence = matchSequence;
     result.crackTime = roundToXDigits(crackTime, 3);
-    // result.crackTimeDisplay
+    result.crackTimeDisplay = [self displayTime:crackTime];
     result.score = [self crackTimeToScore:crackTime];
     return result;
 }
@@ -162,6 +162,8 @@
         match.entropy = [self digitsEntropy:match];
     } else if ([match.pattern isEqualToString:@"year"]) {
         match.entropy = [self yearEntropy:match];
+    } else if ([match.pattern isEqualToString:@"date"]) {
+        match.entropy = [self dateEntropy:match];
     } else if ([match.pattern isEqualToString:@"spatial"]) {
         match.entropy = [self spatialEntropy:match];
     } else if ([match.pattern isEqualToString:@"dictionary"]) {
@@ -211,6 +213,20 @@ static int kNumDays = 31;
 - (float)yearEntropy:(DBMatch *)match
 {
     return lg(kNumYears);
+}
+
+- (float)dateEntropy:(DBMatch *)match
+{
+    float entropy = 0.0;
+    if (match.year < 100) {
+        entropy = lg(kNumDays * kNumMonths * 100); // two-digit year
+    } else {
+        entropy = lg(kNumDays * kNumMonths * kNumYears); // four-digit year
+    }
+    if ([match.separator length]) {
+        entropy += 2; // add two bits for separator selection [/,-,.,etc]
+    }
+    return entropy;
 }
 
 - (float)spatialEntropy:(DBMatch *)match
@@ -342,6 +358,31 @@ static int kNumDays = 31;
 
     return digits + upper + lower + symbols;
 }
+
+- (NSString *)displayTime:(int)seconds
+{
+    int minute = 60;
+    int hour = minute * 60;
+    int day = hour * 24;
+    int month = day * 31;
+    int year = month * 12;
+    int century = year * 100;
+    if (seconds < minute)
+        return @"instant";
+    if (seconds < hour)
+        return [NSString stringWithFormat:@"%d minutes", 1 + (int)ceil(seconds / minute)];
+    if (seconds < day)
+        return [NSString stringWithFormat:@"%d hours", 1 + (int)ceil(seconds / hour)];
+    if (seconds < month)
+        return [NSString stringWithFormat:@"%d days", 1 + (int)ceil(seconds / day)];
+    if (seconds < year)
+        return [NSString stringWithFormat:@"%d months", 1 + (int)ceil(seconds / month)];
+    if (seconds < century)
+        return [NSString stringWithFormat:@"%d years", 1 + (int)ceil(seconds / year)];
+    return @"centuries";
+}
+
+#pragma mark - functions
 
 float binom(int n, int k)
 {

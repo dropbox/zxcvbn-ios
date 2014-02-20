@@ -36,7 +36,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 
         self.matchers = [[NSMutableArray alloc] initWithArray:self.dictionaryMatchers];
         [self.matchers addObjectsFromArray:@[[self l33tMatch],
-                                             [self digitsMatch], [self yearMatch], //date_match,
+                                             [self digitsMatch], [self yearMatch], [self dateMatch],
                                              [self repeatMatch], [self sequenceMatch],
                                              [self spatialMatch]]];
     }
@@ -539,6 +539,151 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
     };
 
     return block;
+}
+
+- (MatcherBlock)dateMatch
+{
+    MatcherBlock block = ^ NSArray* (NSString *password) {
+        // match dates with separators 1/1/1911 and dates without 111997
+        return [[self dateWithoutSepMatch:password] arrayByAddingObjectsFromArray:[self dateSepMatch:password]];
+    };
+
+    return block;
+}
+
+- (NSArray *)dateWithoutSepMatch:(NSString *)password
+{
+    NSMutableArray *dateMatches = [[NSMutableArray alloc] init];
+
+    NSRegularExpression *rx = [NSRegularExpression regularExpressionWithPattern:@"\\d{4,8}" options:0 error:nil]; // 1197 is length-4, 01011997 is length 8
+
+    for (NSTextCheckingResult *digitMatch in [rx matchesInString:password options:0 range:NSMakeRange(0, [password length])]) {
+        int i = [digitMatch range].location;
+        int j = [digitMatch range].length + i - 1;
+        NSString *token = [password substringWithRange:[digitMatch range]];
+        int end = [token length];
+
+        NSMutableArray *candidatesRound1 = [[NSMutableArray alloc] init]; // parse year alternatives
+        if ([token length] <= 6) {
+            [candidatesRound1 addObject:@{ // 2-digit year prefix
+                                          @"daymonth": [token substringFromIndex:2],
+                                          @"year": [token substringToIndex:2],
+                                          @"i": [NSNumber numberWithInt:i],
+                                          @"j": [NSNumber numberWithInt:j],
+                                          }];
+            [candidatesRound1 addObject:@{ // 2-digit year suffix
+                                          @"daymonth": [token substringToIndex:end - 2],
+                                          @"year": [token substringFromIndex:end - 2],
+                                          @"i": [NSNumber numberWithInt:i],
+                                          @"j": [NSNumber numberWithInt:j],
+                                          }];
+        }
+        if ([token length] >= 6) {
+            [candidatesRound1 addObject:@{ // 4-digit year prefix
+                                          @"daymonth": [token substringFromIndex:4],
+                                          @"year": [token substringToIndex:4],
+                                          @"i": [NSNumber numberWithInt:i],
+                                          @"j": [NSNumber numberWithInt:j],
+                                          }];
+            [candidatesRound1 addObject:@{ // 4-digit year suffix
+                                          @"daymonth": [token substringToIndex:end - 4],
+                                          @"year": [token substringFromIndex:end - 4],
+                                          @"i": [NSNumber numberWithInt:i],
+                                          @"j": [NSNumber numberWithInt:j],
+                                          }];
+        }
+        NSMutableArray *candidatesRound2 = [[NSMutableArray alloc] init]; // parse day/month alternatives
+        for (NSDictionary *candidate in candidatesRound1) {
+            NSString *dayMonth = [candidate objectForKey:@"daymonth"];
+            switch ([dayMonth length]) {
+                case 2: // ex. 1 1 97
+                    [candidatesRound2 addObject:@{
+                                                  @"day": [dayMonth substringToIndex:1],
+                                                  @"month": [dayMonth substringWithRange:NSMakeRange(1, 1)],
+                                                  @"year": [candidate objectForKey:@"year"],
+                                                  @"i": [candidate objectForKey:@"i"],
+                                                  @"j": [candidate objectForKey:@"j"],
+                                                  }];
+                    break;
+                case 3: // ex. 11 1 97 or 1 11 97
+                    [candidatesRound2 addObject:@{
+                                                  @"day": [dayMonth substringToIndex:2],
+                                                  @"month": [dayMonth substringWithRange:NSMakeRange(2, 1)],
+                                                  @"year": [candidate objectForKey:@"year"],
+                                                  @"i": [candidate objectForKey:@"i"],
+                                                  @"j": [candidate objectForKey:@"j"],
+                                                  }];
+                    [candidatesRound2 addObject:@{
+                                                  @"day": [dayMonth substringToIndex:1],
+                                                  @"month": [dayMonth substringWithRange:NSMakeRange(1, 2)],
+                                                  @"year": [candidate objectForKey:@"year"],
+                                                  @"i": [candidate objectForKey:@"i"],
+                                                  @"j": [candidate objectForKey:@"j"],
+                                                  }];
+                    break;
+                case 4: // ex. 11 11 97
+                    [candidatesRound2 addObject:@{
+                                                  @"day": [dayMonth substringToIndex:2],
+                                                  @"month": [dayMonth substringWithRange:NSMakeRange(2, 2)],
+                                                  @"year": [candidate objectForKey:@"year"],
+                                                  @"i": [candidate objectForKey:@"i"],
+                                                  @"j": [candidate objectForKey:@"j"],
+                                                  }];
+                    break;
+                default:
+                    break;
+            }
+        }
+        // final loop: reject invalid dates
+        for (NSDictionary *candidate in candidatesRound2) {
+            int day = [[candidate objectForKey:@"day"] intValue];
+            int month = [[candidate objectForKey:@"month"] intValue];
+            int year = [[candidate objectForKey:@"year"] intValue];
+            NSArray *date = [self checkDate:day month:month year:year];
+            if ([[date objectAtIndex:0] boolValue] == NO) {
+                continue;
+            }
+            DBMatch *match = [[DBMatch alloc] init];
+            match.pattern = @"date";
+            match.i = [[candidate objectForKey:@"i"] intValue];
+            match.j = [[candidate objectForKey:@"i"] intValue];
+            match.token = [password substringWithRange:NSMakeRange(i, j - i + 1)];
+            match.separator = @"";
+            match.day = day;
+            match.month = month;
+            match.year = year;
+            [dateMatches addObject:match];
+        }
+    }
+
+    return dateMatches;
+}
+
+- (NSArray *)dateSepMatch:(NSString *)password
+{
+    // TODO
+    NSMutableArray *matches = [[NSMutableArray alloc] init];
+
+    return matches;
+}
+
+- (NSArray *)checkDate:(int)day month:(int)month year:(int)year
+{
+    BOOL valid = YES;
+
+    if (12 <= month <= 31 && day <= 12) { // tolerate both day-month and month-day order
+        int temp = day;
+        day = month;
+        month = temp;
+    }
+
+    if (day > 31 || month > 12) {
+        valid = NO;
+    }
+
+    valid = 1900 <= year <= 2019;
+
+    return @[[NSNumber numberWithBool:valid], [NSNumber numberWithInt:day], [NSNumber numberWithInt:month], [NSNumber numberWithInt:year]];
 }
 
 #pragma mark - utilities

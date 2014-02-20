@@ -68,7 +68,7 @@
         NSLog(@"password: %@", result.password);
         NSLog(@"entropy: %f", result.entropy);
         NSLog(@"crack time (seconds): %f", result.crackTime);
-        //crack time (display):	instant
+        NSLog(@"crack time (display): %@", result.crackTimeDisplay);
         NSLog(@"score from 0 to 4: %d", result.score);
         //calculation time (ms):	7
 
@@ -117,6 +117,13 @@
                 } else {
                     NSLog(@"ascending: false");
                 }
+            }
+
+            if ([match.pattern isEqualToString:@"date"]) {
+                NSLog(@"day: %d", match.day);
+                NSLog(@"month: %d", match.month);
+                NSLog(@"year: %d", match.year);
+                NSLog(@"separator: '%@'", match.separator);
             }
         }
 
