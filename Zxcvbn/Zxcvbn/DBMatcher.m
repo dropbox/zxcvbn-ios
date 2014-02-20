@@ -36,7 +36,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 
         self.matchers = [[NSMutableArray alloc] initWithArray:self.dictionaryMatchers];
         [self.matchers addObjectsFromArray:@[[self l33tMatch],
-                                             // digits_match, year_match, date_match,
+                                             [self digitsMatch], [self yearMatch], //date_match,
                                              [self repeatMatch], [self sequenceMatch],
                                              [self spatialMatch]]];
     }
@@ -495,6 +495,47 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
         }
 
         return result;
+    };
+
+    return block;
+}
+
+#pragma mark - digits, years, dates
+
+- (NSArray *)findAll:(NSString *)password patternName:(NSString *)patternName rx:(NSRegularExpression *)rx
+{
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+
+    for (NSTextCheckingResult *m in [rx matchesInString:password options:0 range:NSMakeRange(0, [password length])]) {
+        DBMatch *match = [[DBMatch alloc] init];
+        match.pattern = patternName;
+        match.i = [m range].location;
+        match.j = [m range].length + match.i - 1;
+        match.token = [password substringWithRange:[m range]];
+        [result addObject:match];
+    }
+
+    return  result;
+}
+
+- (MatcherBlock)digitsMatch
+{
+    NSRegularExpression *digitsRx = [NSRegularExpression regularExpressionWithPattern:@"\\d{3,}" options:0 error:nil];
+
+    MatcherBlock block = ^ NSArray* (NSString *password) {
+        return [self findAll:password patternName:@"digits" rx:digitsRx];
+    };
+    
+    return block;
+}
+
+- (MatcherBlock)yearMatch
+{
+    // 4-digit years only. 2-digit years have the same entropy as 2-digit brute force.
+    NSRegularExpression *yearRx = [NSRegularExpression regularExpressionWithPattern:@"19\\d\\d|200\\d|201\\d" options:0 error:nil];
+
+    MatcherBlock block = ^ NSArray* (NSString *password) {
+        return [self findAll:password patternName:@"year" rx:yearRx];
     };
 
     return block;

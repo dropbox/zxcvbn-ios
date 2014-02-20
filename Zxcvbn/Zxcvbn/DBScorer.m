@@ -158,6 +158,10 @@
         match.entropy = [self repeatEntropy:match];
     } else if ([match.pattern isEqualToString:@"sequence"]) {
         match.entropy = [self sequenceEntropy:match];
+    } else if ([match.pattern isEqualToString:@"digits"]) {
+        match.entropy = [self digitsEntropy:match];
+    } else if ([match.pattern isEqualToString:@"year"]) {
+        match.entropy = [self yearEntropy:match];
     } else if ([match.pattern isEqualToString:@"spatial"]) {
         match.entropy = [self spatialEntropy:match];
     } else if ([match.pattern isEqualToString:@"dictionary"]) {
@@ -193,6 +197,20 @@
         baseEntropy += 1; // extra bit for descending instead of ascending
     }
     return baseEntropy + lg([match.token length]);
+}
+
+- (float)digitsEntropy:(DBMatch *)match
+{
+    return lg(pow(10, [match.token length]));
+}
+
+static int kNumYears = 119; // years match against 1900 - 2019
+static int kNumMonths = 12;
+static int kNumDays = 31;
+
+- (float)yearEntropy:(DBMatch *)match
+{
+    return lg(kNumYears);
 }
 
 - (float)spatialEntropy:(DBMatch *)match
