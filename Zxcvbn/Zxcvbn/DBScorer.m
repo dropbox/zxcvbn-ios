@@ -350,7 +350,7 @@ static int kNumDays = 31;
         } else if ([[NSCharacterSet uppercaseLetterCharacterSet] characterIsMember:chr]) {
             upper = 26;
         } else if ([[NSCharacterSet lowercaseLetterCharacterSet] characterIsMember:chr]) {
-            upper = 26;
+            lower = 26;
         } else {
             symbols = 33;
         }
