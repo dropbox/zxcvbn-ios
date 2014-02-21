@@ -36,10 +36,10 @@
 
 - (DBResult *)passwordStrength:(NSString *)password userInputs:(NSArray *)userInputs
 {
+    NSDate *start = [NSDate date];
     NSArray *matches = [self.matcher omnimatch:password];
-
     DBResult *result = [self.scorer minimumEntropyMatchSequence:password matches:matches];
-    
+    result.calcTime = [[NSDate date] timeIntervalSinceDate:start] * 1000;
     return result;
 }
 

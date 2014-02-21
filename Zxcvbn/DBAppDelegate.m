@@ -70,7 +70,7 @@
         NSLog(@"crack time (seconds): %f", result.crackTime);
         NSLog(@"crack time (display): %@", result.crackTimeDisplay);
         NSLog(@"score from 0 to 4: %d", result.score);
-        //calculation time (ms):	7
+        NSLog(@"calculation time (ms): %f", result.calcTime);
 
         NSLog(@"\n");
         NSLog(@"match sequence:");
