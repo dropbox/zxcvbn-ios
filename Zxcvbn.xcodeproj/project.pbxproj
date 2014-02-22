@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08EDE53F18B913EA0056B2C4 /* DBPasswordStrengthMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08EDE53E18B913EA0056B2C4 /* DBPasswordStrengthMeterView.m */; };
+		08EDE54218B9146C0056B2C4 /* DBCreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08EDE54118B9146C0056B2C4 /* DBCreateAccountViewController.m */; };
 		08F59F8418A8830300FB34D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F59F8318A8830300FB34D6 /* Foundation.framework */; };
 		08F59F8618A8830300FB34D6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F59F8518A8830300FB34D6 /* CoreGraphics.framework */; };
 		08F59F8818A8830300FB34D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F59F8718A8830300FB34D6 /* UIKit.framework */; };
@@ -15,7 +17,6 @@
 		08F59F9418A8830300FB34D6 /* DBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F59F9318A8830300FB34D6 /* DBAppDelegate.m */; };
 		08F59F9718A8830300FB34D6 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08F59F9518A8830300FB34D6 /* Main_iPhone.storyboard */; };
 		08F59F9A18A8830300FB34D6 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08F59F9818A8830300FB34D6 /* Main_iPad.storyboard */; };
-		08F59F9D18A8830300FB34D6 /* DBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F59F9C18A8830300FB34D6 /* DBViewController.m */; };
 		08F59F9F18A8830300FB34D6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08F59F9E18A8830300FB34D6 /* Images.xcassets */; };
 		08F59FA618A8830300FB34D6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F59FA518A8830300FB34D6 /* XCTest.framework */; };
 		08F59FA718A8830300FB34D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F59F8318A8830300FB34D6 /* Foundation.framework */; };
@@ -73,6 +74,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08EDE53D18B913EA0056B2C4 /* DBPasswordStrengthMeterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPasswordStrengthMeterView.h; sourceTree = "<group>"; };
+		08EDE53E18B913EA0056B2C4 /* DBPasswordStrengthMeterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPasswordStrengthMeterView.m; sourceTree = "<group>"; };
+		08EDE54018B9146C0056B2C4 /* DBCreateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBCreateAccountViewController.h; sourceTree = "<group>"; };
+		08EDE54118B9146C0056B2C4 /* DBCreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBCreateAccountViewController.m; sourceTree = "<group>"; };
 		08F59F8018A8830300FB34D6 /* Zxcvbn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zxcvbn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08F59F8318A8830300FB34D6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		08F59F8518A8830300FB34D6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -85,8 +90,6 @@
 		08F59F9318A8830300FB34D6 /* DBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBAppDelegate.m; sourceTree = "<group>"; };
 		08F59F9618A8830300FB34D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		08F59F9918A8830300FB34D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		08F59F9B18A8830300FB34D6 /* DBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBViewController.h; sourceTree = "<group>"; };
-		08F59F9C18A8830300FB34D6 /* DBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBViewController.m; sourceTree = "<group>"; };
 		08F59F9E18A8830300FB34D6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		08F59FA418A8830300FB34D6 /* ZxcvbnTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZxcvbnTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		08F59FA518A8830300FB34D6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -198,8 +201,10 @@
 				08F59F9318A8830300FB34D6 /* DBAppDelegate.m */,
 				08F59F9518A8830300FB34D6 /* Main_iPhone.storyboard */,
 				08F59F9818A8830300FB34D6 /* Main_iPad.storyboard */,
-				08F59F9B18A8830300FB34D6 /* DBViewController.h */,
-				08F59F9C18A8830300FB34D6 /* DBViewController.m */,
+				08EDE54018B9146C0056B2C4 /* DBCreateAccountViewController.h */,
+				08EDE54118B9146C0056B2C4 /* DBCreateAccountViewController.m */,
+				08EDE53D18B913EA0056B2C4 /* DBPasswordStrengthMeterView.h */,
+				08EDE53E18B913EA0056B2C4 /* DBPasswordStrengthMeterView.m */,
 				08F59F9E18A8830300FB34D6 /* Images.xcassets */,
 				08F59F8A18A8830300FB34D6 /* Supporting Files */,
 			);
@@ -441,10 +446,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08EDE54218B9146C0056B2C4 /* DBCreateAccountViewController.m in Sources */,
 				08F59FC418A885EE00FB34D6 /* DBMatcher.m in Sources */,
 				08F59FC118A8832800FB34D6 /* DBZxcvbn.m in Sources */,
+				08EDE53F18B913EA0056B2C4 /* DBPasswordStrengthMeterView.m in Sources */,
 				08F59F9418A8830300FB34D6 /* DBAppDelegate.m in Sources */,
-				08F59F9D18A8830300FB34D6 /* DBViewController.m in Sources */,
 				08F59FC718A887BB00FB34D6 /* DBScorer.m in Sources */,
 				08F59F9018A8830300FB34D6 /* main.m in Sources */,
 			);
