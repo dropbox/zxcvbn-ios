@@ -342,13 +342,13 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
     NSMutableArray *result = [[NSMutableArray alloc] init];
     
     int i = 0;
-    while (i < [password length] - 1) {
+    while (i < [password length] - 1 && [password length] > 0) {
         int j = i + 1;
         int lastDirection = -1;
         int turns = 0;
         int shiftedCount = 0;
         while (YES) {
-            NSString *prevChar = [password substringWithRange:NSMakeRange(j-1, 1)];
+            NSString *prevChar = [password substringWithRange:NSMakeRange(j - 1, 1)];
             BOOL found = NO;
             int foundDirection = -1;
             int curDirection = -1;
