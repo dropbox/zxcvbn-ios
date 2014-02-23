@@ -18,6 +18,7 @@ patterns.
 For full motivation, see: http://tech.dropbox.com/?p=165
 
 Original JavaScript library: https://github.com/dropbox/zxcvbn
+
 Python port: https://github.com/dropbox/python-zxcvbn
 
 # Installation
@@ -26,8 +27,10 @@ Coming soon.
 
 # Use
 
+![zxcvbn example](https://github.com/leah/zxcvbn-ios/blob/master/Zxcvbn/zxcvbn-example.png?raw=true)
+
 The easiest way to use `zxcvbn` is by displaying a `DBPasswordStrengthMeter` in your form. Set up your `UITextFieldDelegate` and add a `DBPasswordStrengthMeter`. As the user types, you can call `scorePassword:` like so:
-``` obj-c
+``` objc
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     NSString *password = [textField.text stringByReplacingCharactersInRange:range withString:string];
@@ -40,7 +43,7 @@ The easiest way to use `zxcvbn` is by displaying a `DBPasswordStrengthMeter` in 
 
 To use zxcvbn without the `DBPasswordStrengthMeter` UI element simply import `DBZxcvbn.h`, create a new instance of `DBZxcvbn`, then call `passwordStrength:`.
 
-``` obj-c
+``` objc
 #import "DBZxcvbn.h"
 
 DBZxcvbn *zxcvbn = [[DBZxcvbn alloc] init];
@@ -49,7 +52,7 @@ DBResult *result = [zxcvbn passwordStrength:password userInputs:userInputs];
 
 The DBResult includes a few properties:
 
-``` obj-c
+``` objc
 result.entropy          // bits
 
 result.crackTime        // estimation of actual crack time, in seconds.

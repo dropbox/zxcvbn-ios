@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08AE00E318B9A795006BB842 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 08AE00E218B9A795006BB842 /* README.md */; };
 		08EDE53F18B913EA0056B2C4 /* DBPasswordStrengthMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08EDE53E18B913EA0056B2C4 /* DBPasswordStrengthMeterView.m */; };
 		08EDE54218B9146C0056B2C4 /* DBCreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08EDE54118B9146C0056B2C4 /* DBCreateAccountViewController.m */; };
 		08F59F8418A8830300FB34D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F59F8318A8830300FB34D6 /* Foundation.framework */; };
@@ -74,6 +75,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08AE00E218B9A795006BB842 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		08EDE53D18B913EA0056B2C4 /* DBPasswordStrengthMeterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPasswordStrengthMeterView.h; sourceTree = "<group>"; };
 		08EDE53E18B913EA0056B2C4 /* DBPasswordStrengthMeterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPasswordStrengthMeterView.m; sourceTree = "<group>"; };
 		08EDE54018B9146C0056B2C4 /* DBCreateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBCreateAccountViewController.h; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				08F59F8C18A8830300FB34D6 /* InfoPlist.strings */,
 				08F59F8F18A8830300FB34D6 /* main.m */,
 				08F59F9118A8830300FB34D6 /* Zxcvbn-Prefix.pch */,
+				08AE00E218B9A795006BB842 /* README.md */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				08F59FF718A88BB600FB34D6 /* tv_and_movie_freqlist12001-14000.html in Resources */,
 				08F59FF218A88BB600FB34D6 /* common_passwords.txt in Resources */,
 				08F59FFC18A88BB600FB34D6 /* tv_and_movie_freqlist2001-3000.html in Resources */,
+				08AE00E318B9A795006BB842 /* README.md in Resources */,
 				08F5A00B18A88BB600FB34D6 /* tv_and_movie_freqlist7001-8000.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
