@@ -74,6 +74,16 @@
     [self addSubview:self.view4];
 
     self.meterViews = @[self.view1, self.view2, self.view3, self.view4];
+
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(strengthMeterTapped:)];
+    [self addGestureRecognizer:tapGestureRecognizer];
+}
+
+- (void)strengthMeterTapped:(UITapGestureRecognizer *)tapGestureRecognizer
+{
+    if ([self.delegate respondsToSelector:@selector(passwordStrengthMeterViewTapped:)]) {
+        [self.delegate passwordStrengthMeterViewTapped:self];
+    }
 }
 
 - (void)setLightColor:(UIColor *)lightColor darkColor:(UIColor *)darkColor

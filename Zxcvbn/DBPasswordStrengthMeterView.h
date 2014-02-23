@@ -8,9 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol DBPasswordStrengthMeterViewDelegate;
+
 @interface DBPasswordStrengthMeterView : UIView
+
+@property (nonatomic, assign) id <DBPasswordStrengthMeterViewDelegate> delegate;
 
 - (void)setLightColor:(UIColor *)lightColor darkColor:(UIColor *)darkColor;
 - (void)scorePassword:(NSString *)password;
+
+@end
+
+@protocol DBPasswordStrengthMeterViewDelegate <NSObject>
+
+- (void)passwordStrengthMeterViewTapped:(DBPasswordStrengthMeterView *)passwordStrengthMeterView;
 
 @end
