@@ -66,8 +66,8 @@
         DBResult *result = [zxcvbn passwordStrength:password];
 
         NSLog(@"password: %@", result.password);
-        NSLog(@"entropy: %f", result.entropy);
-        NSLog(@"crack time (seconds): %f", result.crackTime);
+        NSLog(@"entropy: %@", result.entropy);
+        NSLog(@"crack time (seconds): %@", result.crackTime);
         NSLog(@"crack time (display): %@", result.crackTimeDisplay);
         NSLog(@"score from 0 to 4: %d", result.score);
         NSLog(@"calculation time (ms): %f", result.calcTime);

@@ -103,7 +103,7 @@
     return result;
 }
 
-- (float)entropyToCrackTime:(int)entropy
+- (float)entropyToCrackTime:(float)entropy
 {
     /*
      threat model -- stolen hash catastrophe scenario
