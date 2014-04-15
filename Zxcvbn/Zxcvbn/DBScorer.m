@@ -195,7 +195,7 @@
             baseEntropy = lg(26) + 1; // extra bit for uppercase
         }
     }
-    if (match.ascending == NO) {
+    if (!match.ascending) {
         baseEntropy += 1; // extra bit for descending instead of ascending
     }
     return baseEntropy + lg([match.token length]);

@@ -221,11 +221,23 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
     NSMutableArray *subs = [[NSMutableArray alloc] initWithObjects:[[NSMutableArray alloc] init], nil];
 
     NSMutableArray* (^dedup)(NSArray *) = ^ NSMutableArray* (NSArray *subs) {
-        //NSMutableArray *deduped = [[NSMutableArray alloc] init];
+        NSMutableArray *deduped = [[NSMutableArray alloc] init];
+        NSMutableArray *members = [[NSMutableArray alloc] init];
         for (NSArray *sub in subs) {
-            // TODO implement this
+            NSArray *assoc = [sub sortedArrayUsingComparator:^NSComparisonResult(NSArray *kv1, NSArray *kv2) {
+                return [kv1[0] caseInsensitiveCompare:kv2[0]];
+            }];
+            NSMutableArray *kvs = [[NSMutableArray alloc] initWithCapacity:[assoc count]];
+            for (NSArray *kv in assoc) {
+                [kvs addObject:[kv componentsJoinedByString:@","]];
+            }
+            NSString *label = [kvs componentsJoinedByString:@"-"];
+            if (![members containsObject:label]) {
+                [members addObject:label];
+                [deduped addObject:sub];
+            }
         }
-        return [[NSMutableArray alloc] initWithArray:subs]; // temp
+        return deduped;
     };
 
     NSArray *keys = [table allKeys];
