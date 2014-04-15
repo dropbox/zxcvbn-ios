@@ -320,7 +320,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
                         NSString *chr = [sub objectForKey:subbedChr];
                         if ([token rangeOfString:subbedChr].location != NSNotFound) {
                             [matchSub setObject:chr forKey:subbedChr];
-                            [subDisplay addObject:[NSString stringWithFormat:@"%@ -> %@", chr, subbedChr]];
+                            [subDisplay addObject:[NSString stringWithFormat:@"%@ -> %@", subbedChr, chr]];
                         }
                     }
 
