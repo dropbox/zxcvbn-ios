@@ -98,7 +98,12 @@
 
 - (void)scorePassword:(NSString *)password
 {
-    int score = [self.zxcvbn passwordStrength:password].score;
+    [self scorePassword:password userInputs:nil];
+}
+
+- (void)scorePassword:(NSString *)password userInputs:(NSArray *)userInputs
+{
+    int score = [self.zxcvbn passwordStrength:password userInputs:userInputs].score;
 
     for (int i = 0; i < [self.meterViews count]; i++) {
         UIView *meterView = [self.meterViews objectAtIndex:i];

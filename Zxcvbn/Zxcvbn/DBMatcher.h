@@ -13,7 +13,7 @@
 @property (nonatomic, assign) int keyboardStartingPositions;
 @property (nonatomic, assign) int keypadStartingPositions;
 
-- (NSArray *)omnimatch:(NSString *)password;
+- (NSArray *)omnimatch:(NSString *)password userInputs:(NSArray *)userInputs;
 
 @end
 

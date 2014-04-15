@@ -16,6 +16,7 @@
 
 - (void)setLightColor:(UIColor *)lightColor darkColor:(UIColor *)darkColor;
 - (void)scorePassword:(NSString *)password;
+- (void)scorePassword:(NSString *)password userInputs:(NSArray *)userInputs;
 
 @end
 

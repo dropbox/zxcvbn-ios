@@ -12,6 +12,9 @@
 
 @interface DBCreateAccountViewController () <DBPasswordStrengthMeterViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *lastNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet DBPasswordStrengthMeterView *passwordStrengthMeterView;
 
 @end
@@ -29,7 +32,9 @@
 {
     NSString *password = [textField.text stringByReplacingCharactersInRange:range withString:string];
 
-    [self.passwordStrengthMeterView scorePassword:password];
+    [self.passwordStrengthMeterView scorePassword:password userInputs:@[self.firstNameTextField.text,
+                                                                        self.lastNameTextField.text,
+                                                                        self.emailTextField.text]];
 
     return YES;
 }
