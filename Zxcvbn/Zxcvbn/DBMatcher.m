@@ -168,8 +168,10 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 
 - (float)calcAverageDegree:(NSDictionary *)graph
 {
+    // on qwerty, 'g' has degree 6, being adjacent to 'ftyhbv'. '\' has degree 1.
+    // this calculates the average over all keys.
     float average = 0.0;
-    for (NSString *key in graph) {
+    for (NSString *key in [graph allKeys]) {
         NSMutableArray *neighbors = [[NSMutableArray alloc] init];
         for (NSString *n in (NSArray *)[graph objectForKey:key]) {
             if (n != (id)[NSNull null]) {

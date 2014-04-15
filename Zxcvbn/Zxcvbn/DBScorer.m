@@ -244,6 +244,7 @@ static int kNumDays = 31;
     int possibilities = 0;
     int L = [match.token length];
     int t = match.turns;
+    // estimate the number of possible patterns w/ length L or less with t turns or less.
     for (int i = 2; i <= L; i++) {
         int possibleTurns = MIN(t, i - 1);
         for (int j = 1; j <= possibleTurns; j++) {
@@ -404,9 +405,10 @@ float lg(float n)
     return log2f(n);
 }
 
-float roundToXDigits(float number, int digits)
+NSString* roundToXDigits(float number, int digits)
 {
-    return round(number * pow(10, digits)) / pow(10, digits);
+    //return round(number * pow(10, digits)) / pow(10, digits);
+    return [NSString stringWithFormat:@"%.*f", digits, number];
 }
 
 id get(NSArray *a, int i)
