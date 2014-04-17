@@ -62,6 +62,7 @@
 		08F5A01018A88BB600FB34D6 /* us_census_2000_surnames.txt in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FF118A88BB600FB34D6 /* us_census_2000_surnames.txt */; };
 		08F5A01418A88C0800FB34D6 /* adjacency_graphs.json in Resources */ = {isa = PBXBuildFile; fileRef = 08F5A01218A88C0800FB34D6 /* adjacency_graphs.json */; };
 		08F5A01518A88C0800FB34D6 /* frequency_lists.json in Resources */ = {isa = PBXBuildFile; fileRef = 08F5A01318A88C0800FB34D6 /* frequency_lists.json */; };
+		4C70A41919003A460014646E /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4C70A41819003A460014646E /* LICENSE.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,7 @@
 		08F59FF118A88BB600FB34D6 /* us_census_2000_surnames.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = us_census_2000_surnames.txt; sourceTree = "<group>"; };
 		08F5A01218A88C0800FB34D6 /* adjacency_graphs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = adjacency_graphs.json; sourceTree = "<group>"; };
 		08F5A01318A88C0800FB34D6 /* frequency_lists.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = frequency_lists.json; sourceTree = "<group>"; };
+		4C70A41819003A460014646E /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 				08F59F8F18A8830300FB34D6 /* main.m */,
 				08F59F9118A8830300FB34D6 /* Zxcvbn-Prefix.pch */,
 				08AE00E218B9A795006BB842 /* README.md */,
+				4C70A41819003A460014646E /* LICENSE.txt */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				08F5A01418A88C0800FB34D6 /* adjacency_graphs.json in Resources */,
 				08F59FFF18A88BB600FB34D6 /* tv_and_movie_freqlist26001-28000.html in Resources */,
 				08F59FF618A88BB600FB34D6 /* tv_and_movie_freqlist1001-2000.html in Resources */,
+				4C70A41919003A460014646E /* LICENSE.txt in Resources */,
 				08F5A00318A88BB600FB34D6 /* tv_and_movie_freqlist32001-34000.html in Resources */,
 				08F5A00A18A88BB600FB34D6 /* tv_and_movie_freqlist6001-7000.html in Resources */,
 				08F59FF818A88BB600FB34D6 /* tv_and_movie_freqlist14001-16000.html in Resources */,
