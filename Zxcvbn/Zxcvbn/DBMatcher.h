@@ -8,10 +8,10 @@
 
 @interface DBMatcher : NSObject
 
-@property (nonatomic, assign) int keyboardAverageDegree;
-@property (nonatomic, assign) int keypadAverageDegree;
-@property (nonatomic, assign) int keyboardStartingPositions;
-@property (nonatomic, assign) int keypadStartingPositions;
+@property (nonatomic, assign) NSUInteger keyboardAverageDegree;
+@property (nonatomic, assign) NSUInteger keypadAverageDegree;
+@property (nonatomic, assign) NSUInteger keyboardStartingPositions;
+@property (nonatomic, assign) NSUInteger keypadStartingPositions;
 
 - (NSArray *)omnimatch:(NSString *)password userInputs:(NSArray *)userInputs;
 
@@ -21,8 +21,8 @@
 
 @property (nonatomic, assign) NSString *pattern;
 @property (strong, nonatomic) NSString *token;
-@property (nonatomic, assign) int i;
-@property (nonatomic, assign) int j;
+@property (nonatomic, assign) NSUInteger i;
+@property (nonatomic, assign) NSUInteger j;
 @property (nonatomic, assign) float entropy;
 @property (nonatomic, assign) int cardinality;
 

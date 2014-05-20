@@ -30,13 +30,13 @@
         [upToK insertObject:[NSNumber numberWithFloat:[get(upToK, k-1) floatValue] + lg(bruteforceCardinality)] atIndex:k];
         [backpointers insertObject:[NSNull null] atIndex:k];
         for (DBMatch *match in matches) {
-            int i = match.i;
-            int j = match.j;
+            NSUInteger i = match.i;
+            NSUInteger j = match.j;
             if (j != k) {
                 continue;
             }
             // see if best entropy up to i-1 + entropy of this match is less than the current minimum at j.
-            float candidateEntropy = [get(upToK, i-1) floatValue] + [self calcEntropy:match];
+            float candidateEntropy = [get(upToK, (int)i-1) floatValue] + [self calcEntropy:match];
             if (candidateEntropy < [[upToK objectAtIndex:j] floatValue]) {
                 [upToK insertObject:[NSNumber numberWithFloat:candidateEntropy] atIndex:j];
                 [backpointers insertObject:match atIndex:j];
@@ -46,7 +46,7 @@
 
     // walk backwards and decode the best sequence
     NSMutableArray *matchSequence = [[NSMutableArray alloc] init];
-    int k = [password length] - 1;
+    NSInteger k = [password length] - 1;
     while (k >= 0) {
         DBMatch *match = [backpointers objectAtIndex:k];
         if (![match isEqual:[NSNull null]]) {
@@ -60,7 +60,7 @@
 
     // fill in the blanks between pattern matches with bruteforce "matches"
     // that way the match sequence fully covers the password: match1.j == match2.i - 1 for every adjacent match1, match2.
-    DBMatch* (^makeBruteforceMatch)(int i, int j) = ^ DBMatch* (int i, int j) {
+    DBMatch* (^makeBruteforceMatch)(NSUInteger i, NSUInteger j) = ^ DBMatch* (NSUInteger i, NSUInteger j) {
         DBMatch *match = [[DBMatch alloc] init];
         match.pattern = @"bruteforce";
         match.i = i;
@@ -73,8 +73,8 @@
     k = 0;
     NSMutableArray *matchSequenceCopy = [[NSMutableArray alloc] init];
     for (DBMatch *match in matchSequence) {
-        int i = match.i;
-        int j = match.j;
+        NSUInteger i = match.i;
+        NSUInteger j = match.j;
         if (i - k > 0) {
             [matchSequenceCopy addObject:makeBruteforceMatch(k, i-1)];
         }
@@ -232,8 +232,8 @@ static int kNumDays = 31;
 - (float)spatialEntropy:(DBMatch *)match
 {
     DBMatcher *matcher = [[DBMatcher alloc] init];
-    int s;
-    int d;
+    NSUInteger s;
+    NSUInteger d;
     if ([@[@"qwerty", @"dvorak"] containsObject:match.graph]) {
         s = matcher.keyboardStartingPositions;
         d = matcher.keyboardAverageDegree;
@@ -242,7 +242,7 @@ static int kNumDays = 31;
         d = matcher.keypadAverageDegree;
     }
     int possibilities = 0;
-    int L = [match.token length];
+    NSUInteger L = [match.token length];
     int t = match.turns;
     // estimate the number of possible patterns w/ length L or less with t turns or less.
     for (int i = 2; i <= L; i++) {
@@ -256,8 +256,8 @@ static int kNumDays = 31;
     // math is similar to extra entropy from uppercase letters in dictionary matches.
     if (match.shiftedCount) {
         int S = match.shiftedCount;
-        int U = [match.token length] - match.shiftedCount; // unshifted count
-        int possibilities = 0;
+        NSUInteger U = [match.token length] - match.shiftedCount; // unshifted count
+        NSUInteger possibilities = 0;
         for (int i = 0; i <= MIN(S, U); i++) {
             possibilities += binom(S + U, i);
         }
@@ -323,8 +323,8 @@ static int kNumDays = 31;
 
     for (NSString *subbed in [match.sub allKeys]) {
         NSString *unsubbed = [match.sub objectForKey:subbed];
-        int subLength = [[match.token componentsSeparatedByString:subbed] count] - 1;
-        int unsubLength = [[match.token componentsSeparatedByString:unsubbed] count] - 1;
+        NSUInteger subLength = [[match.token componentsSeparatedByString:subbed] count] - 1;
+        NSUInteger unsubLength = [[match.token componentsSeparatedByString:unsubbed] count] - 1;
         for (int i = 0; i <= MIN(unsubLength, subLength); i++) {
             possibilities += binom(unsubLength + subLength, i);
         }
@@ -385,7 +385,7 @@ static int kNumDays = 31;
 
 #pragma mark - functions
 
-float binom(int n, int k)
+float binom(NSUInteger n, NSUInteger k)
 {
     // Returns binomial coefficient (n choose k).
     // http://blog.plover.com/math/choose.html

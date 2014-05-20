@@ -71,7 +71,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 - (NSMutableArray *)dictionaryMatch:(NSString *)password rankedDict:(NSMutableDictionary *)rankedDict
 {
     NSMutableArray *result = [[NSMutableArray alloc] init];
-    int length = [password length];
+    NSUInteger length = [password length];
     NSString *passwordLower = [password lowercaseString];
 
     for (int i = 0; i < length; i++) {
@@ -474,13 +474,13 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
             int j = i + 1;
             NSString *seq = nil; // either lower, upper, or digits
             NSString *seqName = nil;
-            int seqDirection = 0; // 1 for ascending seq abcd, -1 for dcba
+            NSUInteger seqDirection = 0; // 1 for ascending seq abcd, -1 for dcba
             for (NSString *seqCandidateName in sequences) {
                 NSString *seqCandidate = [sequences objectForKey:seqCandidateName];
-                int iN = [seqCandidate rangeOfString:[password substringWithRange:NSMakeRange(i, 1)]].location;
-                int jN = j < [password length] ? [seqCandidate rangeOfString:[password substringWithRange:NSMakeRange(j, 1)]].location : NSNotFound;
+                NSUInteger iN = [seqCandidate rangeOfString:[password substringWithRange:NSMakeRange(i, 1)]].location;
+                NSUInteger jN = j < [password length] ? [seqCandidate rangeOfString:[password substringWithRange:NSMakeRange(j, 1)]].location : NSNotFound;
                 if (iN != NSNotFound && jN != NSNotFound) {
-                    int direction = jN - iN;
+                    NSUInteger direction = jN - iN;
                     if (direction == 1 || direction == -1) {
                         seq = seqCandidate;
                         seqName = seqCandidateName;
@@ -493,8 +493,8 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
                 while (YES) {
                     NSString *prevChar = [password substringWithRange:NSMakeRange(j - 1, 1)];
                     NSString *curChar = j < [password length] ? [password substringWithRange:NSMakeRange(j, 1)] : nil;
-                    int prevN = [seq rangeOfString:prevChar].location;
-                    int curN = curChar == nil ? NSNotFound : [seq rangeOfString:curChar].location;
+                    NSUInteger prevN = [seq rangeOfString:prevChar].location;
+                    NSUInteger curN = curChar == nil ? NSNotFound : [seq rangeOfString:curChar].location;
                     if (curN - prevN == seqDirection) {
                         j++;
                     } else {
@@ -505,7 +505,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
                             match.j = j - 1;
                             match.token = [password substringWithRange:NSMakeRange(i, j - i)];
                             match.sequenceName = seqName;
-                            match.sequenceSpace = [seq length];
+                            match.sequenceSpace = (int)[seq length];
                             match.ascending = seqDirection == 1;
                             [result addObject:match];
                         }
