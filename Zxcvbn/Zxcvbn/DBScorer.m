@@ -360,7 +360,7 @@ static int kNumDays = 31;
     return digits + upper + lower + symbols;
 }
 
-- (NSString *)displayTime:(int)seconds
+- (NSString *)displayTime:(float)seconds
 {
     int minute = 60;
     int hour = minute * 60;
