@@ -110,9 +110,10 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 
 - (MatcherBlock)buildDictMatcher:(NSString *)dictName rankedDict:(NSMutableDictionary *)rankedDict
 {
+    __weak typeof(self) weakSelf = self;
     MatcherBlock block = ^ NSArray* (NSString *password) {
 
-        NSMutableArray *matches = [self dictionaryMatch:password rankedDict:rankedDict];
+        NSMutableArray *matches = [weakSelf dictionaryMatch:password rankedDict:rankedDict];
         
         for (DBMatch *match in matches) {
             match.dictionaryName = dictName;
@@ -299,16 +300,17 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 
 - (MatcherBlock)l33tMatch
 {
+    __weak typeof(self) weakSelf = self;
     MatcherBlock block = ^ NSArray* (NSString *password) {
 
         NSMutableArray *matches = [[NSMutableArray alloc] init];
 
-        for (NSDictionary *sub in [self enumerateL33tSubs:[self relevantL33tSubtable:password]]) {
+        for (NSDictionary *sub in [weakSelf enumerateL33tSubs:[weakSelf relevantL33tSubtable:password]]) {
             if ([sub count] == 0) { break; } // corner case: password has no relevent subs.
 
-            NSString *subbedPassword = [self translate:password characterMap:sub];
+            NSString *subbedPassword = [weakSelf translate:password characterMap:sub];
 
-            for (MatcherBlock matcher in self.dictionaryMatchers) {
+            for (MatcherBlock matcher in weakSelf.dictionaryMatchers) {
                 for (DBMatch *match in matcher(subbedPassword)) {
 
                     NSString *token = [password substringWithRange:NSMakeRange(match.i, match.j - match.i + 1)];
@@ -345,12 +347,13 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 
 - (MatcherBlock)spatialMatch
 {
+    __weak typeof(self) weakSelf = self;
     MatcherBlock block = ^ NSArray* (NSString *password) {
         NSMutableArray *matches = [[NSMutableArray alloc] init];
 
-        for (NSString *graphName in self.graphs) {
-            NSDictionary *graph = [self.graphs objectForKey:graphName];
-            [matches addObjectsFromArray:[self spatialMatchHelper:password graph:graph graphName:graphName]];
+        for (NSString *graphName in weakSelf.graphs) {
+            NSDictionary *graph = [weakSelf.graphs objectForKey:graphName];
+            [matches addObjectsFromArray:[weakSelf spatialMatchHelper:password graph:graph graphName:graphName]];
         }
 
         return matches;
@@ -579,9 +582,10 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 - (MatcherBlock)digitsMatch
 {
     NSRegularExpression *digitsRx = [NSRegularExpression regularExpressionWithPattern:@"\\d{3,}" options:0 error:nil];
-
+    
+    __weak typeof(self) weakSelf = self;
     MatcherBlock block = ^ NSArray* (NSString *password) {
-        return [self findAll:password patternName:@"digits" rx:digitsRx];
+        return [weakSelf findAll:password patternName:@"digits" rx:digitsRx];
     };
     
     return block;
@@ -591,9 +595,10 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 {
     // 4-digit years only. 2-digit years have the same entropy as 2-digit brute force.
     NSRegularExpression *yearRx = [NSRegularExpression regularExpressionWithPattern:@"19\\d\\d|200\\d|201\\d" options:0 error:nil];
-
+    
+    __weak typeof(self) weakSelf = self;
     MatcherBlock block = ^ NSArray* (NSString *password) {
-        return [self findAll:password patternName:@"year" rx:yearRx];
+        return [weakSelf findAll:password patternName:@"year" rx:yearRx];
     };
 
     return block;
@@ -604,8 +609,9 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
     // known bug: this doesn't cover all short dates w/o separators like 111911.
     NSRegularExpression *dateRx = [NSRegularExpression regularExpressionWithPattern:@"(\\d{1,2})( |-|\\/|\\.|_)?(\\d{1,2})( |-|\\/|\\.|_)?(19\\d{2}|200\\d|201\\d|\\d{2})" options:0 error:nil];
     
+    __weak typeof(self) weakSelf = self;
     MatcherBlock block = ^ NSArray* (NSString *password) {
-        return [self findAll:password patternName:@"date" rx:dateRx];
+        return [weakSelf findAll:password patternName:@"date" rx:dateRx];
     };
     
     return block;
