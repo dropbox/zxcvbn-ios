@@ -17,6 +17,17 @@
 
 @end
 
+//Object used to load frequency lists and adjacency graphs
+@interface DBMatchResources : NSObject
+
+@property (nonatomic, strong) NSArray *dictionaryMatchers;
+@property (nonatomic, strong) NSDictionary *graphs;
+
+//Call to get singleton object
++ (DBMatchResources *)sharedDBMatcherResources;
+
+@end
+
 @interface DBMatch : NSObject
 
 @property (nonatomic, assign) NSString *pattern;
