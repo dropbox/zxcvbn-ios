@@ -27,39 +27,6 @@
 		08F59FC118A8832800FB34D6 /* DBZxcvbn.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F59FBF18A8832800FB34D6 /* DBZxcvbn.m */; };
 		08F59FC418A885EE00FB34D6 /* DBMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F59FC318A885EE00FB34D6 /* DBMatcher.m */; };
 		08F59FC718A887BB00FB34D6 /* DBScorer.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F59FC618A887BB00FB34D6 /* DBScorer.m */; };
-		08F59FD018A88B3A00FB34D6 /* build_frequency_lists.py in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FCE18A88B3A00FB34D6 /* build_frequency_lists.py */; };
-		08F59FD118A88B3A00FB34D6 /* build_keyboard_adjacency_graph.py in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FCF18A88B3A00FB34D6 /* build_keyboard_adjacency_graph.py */; };
-		08F59FF218A88BB600FB34D6 /* common_passwords.txt in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FD318A88BB600FB34D6 /* common_passwords.txt */; };
-		08F59FF318A88BB600FB34D6 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FD418A88BB600FB34D6 /* README */; };
-		08F59FF418A88BB600FB34D6 /* tv_and_movie_freqlist1-1000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FD518A88BB600FB34D6 /* tv_and_movie_freqlist1-1000.html */; };
-		08F59FF518A88BB600FB34D6 /* tv_and_movie_freqlist10001-12000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FD618A88BB600FB34D6 /* tv_and_movie_freqlist10001-12000.html */; };
-		08F59FF618A88BB600FB34D6 /* tv_and_movie_freqlist1001-2000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FD718A88BB600FB34D6 /* tv_and_movie_freqlist1001-2000.html */; };
-		08F59FF718A88BB600FB34D6 /* tv_and_movie_freqlist12001-14000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FD818A88BB600FB34D6 /* tv_and_movie_freqlist12001-14000.html */; };
-		08F59FF818A88BB600FB34D6 /* tv_and_movie_freqlist14001-16000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FD918A88BB600FB34D6 /* tv_and_movie_freqlist14001-16000.html */; };
-		08F59FF918A88BB600FB34D6 /* tv_and_movie_freqlist16001-18000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FDA18A88BB600FB34D6 /* tv_and_movie_freqlist16001-18000.html */; };
-		08F59FFA18A88BB600FB34D6 /* tv_and_movie_freqlist18001-20000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FDB18A88BB600FB34D6 /* tv_and_movie_freqlist18001-20000.html */; };
-		08F59FFB18A88BB600FB34D6 /* tv_and_movie_freqlist20001-22000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FDC18A88BB600FB34D6 /* tv_and_movie_freqlist20001-22000.html */; };
-		08F59FFC18A88BB600FB34D6 /* tv_and_movie_freqlist2001-3000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FDD18A88BB600FB34D6 /* tv_and_movie_freqlist2001-3000.html */; };
-		08F59FFD18A88BB600FB34D6 /* tv_and_movie_freqlist22001-24000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FDE18A88BB600FB34D6 /* tv_and_movie_freqlist22001-24000.html */; };
-		08F59FFE18A88BB600FB34D6 /* tv_and_movie_freqlist24001-26000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FDF18A88BB600FB34D6 /* tv_and_movie_freqlist24001-26000.html */; };
-		08F59FFF18A88BB600FB34D6 /* tv_and_movie_freqlist26001-28000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FE018A88BB600FB34D6 /* tv_and_movie_freqlist26001-28000.html */; };
-		08F5A00018A88BB600FB34D6 /* tv_and_movie_freqlist28001-30000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FE118A88BB600FB34D6 /* tv_and_movie_freqlist28001-30000.html */; };
-		08F5A00118A88BB600FB34D6 /* tv_and_movie_freqlist30001-32000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FE218A88BB600FB34D6 /* tv_and_movie_freqlist30001-32000.html */; };
-		08F5A00218A88BB600FB34D6 /* tv_and_movie_freqlist3001-4000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FE318A88BB600FB34D6 /* tv_and_movie_freqlist3001-4000.html */; };
-		08F5A00318A88BB600FB34D6 /* tv_and_movie_freqlist32001-34000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FE418A88BB600FB34D6 /* tv_and_movie_freqlist32001-34000.html */; };
-		08F5A00418A88BB600FB34D6 /* tv_and_movie_freqlist34001-36000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FE518A88BB600FB34D6 /* tv_and_movie_freqlist34001-36000.html */; };
-		08F5A00518A88BB600FB34D6 /* tv_and_movie_freqlist36001-38000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FE618A88BB600FB34D6 /* tv_and_movie_freqlist36001-38000.html */; };
-		08F5A00618A88BB600FB34D6 /* tv_and_movie_freqlist38001-40000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FE718A88BB600FB34D6 /* tv_and_movie_freqlist38001-40000.html */; };
-		08F5A00718A88BB600FB34D6 /* tv_and_movie_freqlist40001-41284.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FE818A88BB600FB34D6 /* tv_and_movie_freqlist40001-41284.html */; };
-		08F5A00818A88BB600FB34D6 /* tv_and_movie_freqlist4001-5000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FE918A88BB600FB34D6 /* tv_and_movie_freqlist4001-5000.html */; };
-		08F5A00918A88BB600FB34D6 /* tv_and_movie_freqlist5001-6000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FEA18A88BB600FB34D6 /* tv_and_movie_freqlist5001-6000.html */; };
-		08F5A00A18A88BB600FB34D6 /* tv_and_movie_freqlist6001-7000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FEB18A88BB600FB34D6 /* tv_and_movie_freqlist6001-7000.html */; };
-		08F5A00B18A88BB600FB34D6 /* tv_and_movie_freqlist7001-8000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FEC18A88BB600FB34D6 /* tv_and_movie_freqlist7001-8000.html */; };
-		08F5A00C18A88BB600FB34D6 /* tv_and_movie_freqlist8001-9000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FED18A88BB600FB34D6 /* tv_and_movie_freqlist8001-9000.html */; };
-		08F5A00D18A88BB600FB34D6 /* tv_and_movie_freqlist9001-10000.html in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FEE18A88BB600FB34D6 /* tv_and_movie_freqlist9001-10000.html */; };
-		08F5A00E18A88BB600FB34D6 /* us_census_2000_female_first.txt in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FEF18A88BB600FB34D6 /* us_census_2000_female_first.txt */; };
-		08F5A00F18A88BB600FB34D6 /* us_census_2000_male_first.txt in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FF018A88BB600FB34D6 /* us_census_2000_male_first.txt */; };
-		08F5A01018A88BB600FB34D6 /* us_census_2000_surnames.txt in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FF118A88BB600FB34D6 /* us_census_2000_surnames.txt */; };
 		08F5A01418A88C0800FB34D6 /* adjacency_graphs.json in Resources */ = {isa = PBXBuildFile; fileRef = 08F5A01218A88C0800FB34D6 /* adjacency_graphs.json */; };
 		08F5A01518A88C0800FB34D6 /* frequency_lists.json in Resources */ = {isa = PBXBuildFile; fileRef = 08F5A01318A88C0800FB34D6 /* frequency_lists.json */; };
 		4C70A41919003A460014646E /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4C70A41819003A460014646E /* LICENSE.txt */; };
@@ -105,39 +72,6 @@
 		08F59FC318A885EE00FB34D6 /* DBMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMatcher.m; sourceTree = "<group>"; };
 		08F59FC518A887BB00FB34D6 /* DBScorer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBScorer.h; sourceTree = "<group>"; };
 		08F59FC618A887BB00FB34D6 /* DBScorer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBScorer.m; sourceTree = "<group>"; };
-		08F59FCE18A88B3A00FB34D6 /* build_frequency_lists.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = build_frequency_lists.py; sourceTree = "<group>"; };
-		08F59FCF18A88B3A00FB34D6 /* build_keyboard_adjacency_graph.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = build_keyboard_adjacency_graph.py; sourceTree = "<group>"; };
-		08F59FD318A88BB600FB34D6 /* common_passwords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = common_passwords.txt; sourceTree = "<group>"; };
-		08F59FD418A88BB600FB34D6 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
-		08F59FD518A88BB600FB34D6 /* tv_and_movie_freqlist1-1000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist1-1000.html"; sourceTree = "<group>"; };
-		08F59FD618A88BB600FB34D6 /* tv_and_movie_freqlist10001-12000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist10001-12000.html"; sourceTree = "<group>"; };
-		08F59FD718A88BB600FB34D6 /* tv_and_movie_freqlist1001-2000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist1001-2000.html"; sourceTree = "<group>"; };
-		08F59FD818A88BB600FB34D6 /* tv_and_movie_freqlist12001-14000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist12001-14000.html"; sourceTree = "<group>"; };
-		08F59FD918A88BB600FB34D6 /* tv_and_movie_freqlist14001-16000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist14001-16000.html"; sourceTree = "<group>"; };
-		08F59FDA18A88BB600FB34D6 /* tv_and_movie_freqlist16001-18000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist16001-18000.html"; sourceTree = "<group>"; };
-		08F59FDB18A88BB600FB34D6 /* tv_and_movie_freqlist18001-20000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist18001-20000.html"; sourceTree = "<group>"; };
-		08F59FDC18A88BB600FB34D6 /* tv_and_movie_freqlist20001-22000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist20001-22000.html"; sourceTree = "<group>"; };
-		08F59FDD18A88BB600FB34D6 /* tv_and_movie_freqlist2001-3000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist2001-3000.html"; sourceTree = "<group>"; };
-		08F59FDE18A88BB600FB34D6 /* tv_and_movie_freqlist22001-24000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist22001-24000.html"; sourceTree = "<group>"; };
-		08F59FDF18A88BB600FB34D6 /* tv_and_movie_freqlist24001-26000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist24001-26000.html"; sourceTree = "<group>"; };
-		08F59FE018A88BB600FB34D6 /* tv_and_movie_freqlist26001-28000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist26001-28000.html"; sourceTree = "<group>"; };
-		08F59FE118A88BB600FB34D6 /* tv_and_movie_freqlist28001-30000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist28001-30000.html"; sourceTree = "<group>"; };
-		08F59FE218A88BB600FB34D6 /* tv_and_movie_freqlist30001-32000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist30001-32000.html"; sourceTree = "<group>"; };
-		08F59FE318A88BB600FB34D6 /* tv_and_movie_freqlist3001-4000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist3001-4000.html"; sourceTree = "<group>"; };
-		08F59FE418A88BB600FB34D6 /* tv_and_movie_freqlist32001-34000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist32001-34000.html"; sourceTree = "<group>"; };
-		08F59FE518A88BB600FB34D6 /* tv_and_movie_freqlist34001-36000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist34001-36000.html"; sourceTree = "<group>"; };
-		08F59FE618A88BB600FB34D6 /* tv_and_movie_freqlist36001-38000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist36001-38000.html"; sourceTree = "<group>"; };
-		08F59FE718A88BB600FB34D6 /* tv_and_movie_freqlist38001-40000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist38001-40000.html"; sourceTree = "<group>"; };
-		08F59FE818A88BB600FB34D6 /* tv_and_movie_freqlist40001-41284.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist40001-41284.html"; sourceTree = "<group>"; };
-		08F59FE918A88BB600FB34D6 /* tv_and_movie_freqlist4001-5000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist4001-5000.html"; sourceTree = "<group>"; };
-		08F59FEA18A88BB600FB34D6 /* tv_and_movie_freqlist5001-6000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist5001-6000.html"; sourceTree = "<group>"; };
-		08F59FEB18A88BB600FB34D6 /* tv_and_movie_freqlist6001-7000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist6001-7000.html"; sourceTree = "<group>"; };
-		08F59FEC18A88BB600FB34D6 /* tv_and_movie_freqlist7001-8000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist7001-8000.html"; sourceTree = "<group>"; };
-		08F59FED18A88BB600FB34D6 /* tv_and_movie_freqlist8001-9000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist8001-9000.html"; sourceTree = "<group>"; };
-		08F59FEE18A88BB600FB34D6 /* tv_and_movie_freqlist9001-10000.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "tv_and_movie_freqlist9001-10000.html"; sourceTree = "<group>"; };
-		08F59FEF18A88BB600FB34D6 /* us_census_2000_female_first.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = us_census_2000_female_first.txt; sourceTree = "<group>"; };
-		08F59FF018A88BB600FB34D6 /* us_census_2000_male_first.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = us_census_2000_male_first.txt; sourceTree = "<group>"; };
-		08F59FF118A88BB600FB34D6 /* us_census_2000_surnames.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = us_census_2000_surnames.txt; sourceTree = "<group>"; };
 		08F5A01218A88C0800FB34D6 /* adjacency_graphs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = adjacency_graphs.json; sourceTree = "<group>"; };
 		08F5A01318A88C0800FB34D6 /* frequency_lists.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = frequency_lists.json; sourceTree = "<group>"; };
 		4C70A41819003A460014646E /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = SOURCE_ROOT; };
@@ -249,9 +183,7 @@
 		08F59FBB18A8832800FB34D6 /* Zxcvbn */ = {
 			isa = PBXGroup;
 			children = (
-				08F59FD218A88BB600FB34D6 /* data */,
 				08F5A01118A88C0800FB34D6 /* generated */,
-				08F59FCD18A88B3A00FB34D6 /* scripts */,
 				08F59FC218A885EE00FB34D6 /* DBMatcher.h */,
 				08F59FC318A885EE00FB34D6 /* DBMatcher.m */,
 				08F59FC518A887BB00FB34D6 /* DBScorer.h */,
@@ -260,53 +192,6 @@
 				08F59FBF18A8832800FB34D6 /* DBZxcvbn.m */,
 			);
 			path = Zxcvbn;
-			sourceTree = "<group>";
-		};
-		08F59FCD18A88B3A00FB34D6 /* scripts */ = {
-			isa = PBXGroup;
-			children = (
-				08F59FCE18A88B3A00FB34D6 /* build_frequency_lists.py */,
-				08F59FCF18A88B3A00FB34D6 /* build_keyboard_adjacency_graph.py */,
-			);
-			path = scripts;
-			sourceTree = "<group>";
-		};
-		08F59FD218A88BB600FB34D6 /* data */ = {
-			isa = PBXGroup;
-			children = (
-				08F59FD318A88BB600FB34D6 /* common_passwords.txt */,
-				08F59FD418A88BB600FB34D6 /* README */,
-				08F59FD518A88BB600FB34D6 /* tv_and_movie_freqlist1-1000.html */,
-				08F59FD618A88BB600FB34D6 /* tv_and_movie_freqlist10001-12000.html */,
-				08F59FD718A88BB600FB34D6 /* tv_and_movie_freqlist1001-2000.html */,
-				08F59FD818A88BB600FB34D6 /* tv_and_movie_freqlist12001-14000.html */,
-				08F59FD918A88BB600FB34D6 /* tv_and_movie_freqlist14001-16000.html */,
-				08F59FDA18A88BB600FB34D6 /* tv_and_movie_freqlist16001-18000.html */,
-				08F59FDB18A88BB600FB34D6 /* tv_and_movie_freqlist18001-20000.html */,
-				08F59FDC18A88BB600FB34D6 /* tv_and_movie_freqlist20001-22000.html */,
-				08F59FDD18A88BB600FB34D6 /* tv_and_movie_freqlist2001-3000.html */,
-				08F59FDE18A88BB600FB34D6 /* tv_and_movie_freqlist22001-24000.html */,
-				08F59FDF18A88BB600FB34D6 /* tv_and_movie_freqlist24001-26000.html */,
-				08F59FE018A88BB600FB34D6 /* tv_and_movie_freqlist26001-28000.html */,
-				08F59FE118A88BB600FB34D6 /* tv_and_movie_freqlist28001-30000.html */,
-				08F59FE218A88BB600FB34D6 /* tv_and_movie_freqlist30001-32000.html */,
-				08F59FE318A88BB600FB34D6 /* tv_and_movie_freqlist3001-4000.html */,
-				08F59FE418A88BB600FB34D6 /* tv_and_movie_freqlist32001-34000.html */,
-				08F59FE518A88BB600FB34D6 /* tv_and_movie_freqlist34001-36000.html */,
-				08F59FE618A88BB600FB34D6 /* tv_and_movie_freqlist36001-38000.html */,
-				08F59FE718A88BB600FB34D6 /* tv_and_movie_freqlist38001-40000.html */,
-				08F59FE818A88BB600FB34D6 /* tv_and_movie_freqlist40001-41284.html */,
-				08F59FE918A88BB600FB34D6 /* tv_and_movie_freqlist4001-5000.html */,
-				08F59FEA18A88BB600FB34D6 /* tv_and_movie_freqlist5001-6000.html */,
-				08F59FEB18A88BB600FB34D6 /* tv_and_movie_freqlist6001-7000.html */,
-				08F59FEC18A88BB600FB34D6 /* tv_and_movie_freqlist7001-8000.html */,
-				08F59FED18A88BB600FB34D6 /* tv_and_movie_freqlist8001-9000.html */,
-				08F59FEE18A88BB600FB34D6 /* tv_and_movie_freqlist9001-10000.html */,
-				08F59FEF18A88BB600FB34D6 /* us_census_2000_female_first.txt */,
-				08F59FF018A88BB600FB34D6 /* us_census_2000_male_first.txt */,
-				08F59FF118A88BB600FB34D6 /* us_census_2000_surnames.txt */,
-			);
-			path = data;
 			sourceTree = "<group>";
 		};
 		08F5A01118A88C0800FB34D6 /* generated */ = {
@@ -395,47 +280,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08F5A00C18A88BB600FB34D6 /* tv_and_movie_freqlist8001-9000.html in Resources */,
-				08F59FFB18A88BB600FB34D6 /* tv_and_movie_freqlist20001-22000.html in Resources */,
-				08F5A00818A88BB600FB34D6 /* tv_and_movie_freqlist4001-5000.html in Resources */,
-				08F59FD118A88B3A00FB34D6 /* build_keyboard_adjacency_graph.py in Resources */,
 				08F59F9A18A8830300FB34D6 /* Main_iPad.storyboard in Resources */,
-				08F5A00F18A88BB600FB34D6 /* us_census_2000_male_first.txt in Resources */,
-				08F59FD018A88B3A00FB34D6 /* build_frequency_lists.py in Resources */,
-				08F5A00918A88BB600FB34D6 /* tv_and_movie_freqlist5001-6000.html in Resources */,
 				08F5A01518A88C0800FB34D6 /* frequency_lists.json in Resources */,
-				08F5A00518A88BB600FB34D6 /* tv_and_movie_freqlist36001-38000.html in Resources */,
-				08F5A00418A88BB600FB34D6 /* tv_and_movie_freqlist34001-36000.html in Resources */,
-				08F5A00618A88BB600FB34D6 /* tv_and_movie_freqlist38001-40000.html in Resources */,
 				08F5A01418A88C0800FB34D6 /* adjacency_graphs.json in Resources */,
-				08F59FFF18A88BB600FB34D6 /* tv_and_movie_freqlist26001-28000.html in Resources */,
-				08F59FF618A88BB600FB34D6 /* tv_and_movie_freqlist1001-2000.html in Resources */,
 				4C70A41919003A460014646E /* LICENSE.txt in Resources */,
-				08F5A00318A88BB600FB34D6 /* tv_and_movie_freqlist32001-34000.html in Resources */,
-				08F5A00A18A88BB600FB34D6 /* tv_and_movie_freqlist6001-7000.html in Resources */,
-				08F59FF818A88BB600FB34D6 /* tv_and_movie_freqlist14001-16000.html in Resources */,
-				08F5A00D18A88BB600FB34D6 /* tv_and_movie_freqlist9001-10000.html in Resources */,
 				08F59F9F18A8830300FB34D6 /* Images.xcassets in Resources */,
-				08F5A00018A88BB600FB34D6 /* tv_and_movie_freqlist28001-30000.html in Resources */,
-				08F5A00718A88BB600FB34D6 /* tv_and_movie_freqlist40001-41284.html in Resources */,
-				08F59FF318A88BB600FB34D6 /* README in Resources */,
-				08F59FFD18A88BB600FB34D6 /* tv_and_movie_freqlist22001-24000.html in Resources */,
 				08F59F9718A8830300FB34D6 /* Main_iPhone.storyboard in Resources */,
-				08F59FFA18A88BB600FB34D6 /* tv_and_movie_freqlist18001-20000.html in Resources */,
-				08F5A00E18A88BB600FB34D6 /* us_census_2000_female_first.txt in Resources */,
-				08F5A01018A88BB600FB34D6 /* us_census_2000_surnames.txt in Resources */,
-				08F5A00218A88BB600FB34D6 /* tv_and_movie_freqlist3001-4000.html in Resources */,
-				08F59FF918A88BB600FB34D6 /* tv_and_movie_freqlist16001-18000.html in Resources */,
 				08F59F8E18A8830300FB34D6 /* InfoPlist.strings in Resources */,
-				08F59FF418A88BB600FB34D6 /* tv_and_movie_freqlist1-1000.html in Resources */,
-				08F59FFE18A88BB600FB34D6 /* tv_and_movie_freqlist24001-26000.html in Resources */,
-				08F59FF518A88BB600FB34D6 /* tv_and_movie_freqlist10001-12000.html in Resources */,
-				08F5A00118A88BB600FB34D6 /* tv_and_movie_freqlist30001-32000.html in Resources */,
-				08F59FF718A88BB600FB34D6 /* tv_and_movie_freqlist12001-14000.html in Resources */,
-				08F59FF218A88BB600FB34D6 /* common_passwords.txt in Resources */,
-				08F59FFC18A88BB600FB34D6 /* tv_and_movie_freqlist2001-3000.html in Resources */,
 				08AE00E318B9A795006BB842 /* README.md in Resources */,
-				08F5A00B18A88BB600FB34D6 /* tv_and_movie_freqlist7001-8000.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
