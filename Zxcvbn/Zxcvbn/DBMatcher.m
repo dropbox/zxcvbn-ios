@@ -96,18 +96,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
     return result;
 }
 
-- (NSMutableDictionary *)buildRankedDict:(NSArray *)unrankedList
-{
-    NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
-    int i = 1; // rank starts at 1, not 0
 
-    for (NSString *word in unrankedList) {
-        [result setObject:[NSNumber numberWithInt:i] forKey:word];
-        i++;
-    }
-
-    return result;
-}
 
 - (MatcherBlock)buildDictMatcher:(NSString *)dictName rankedDict:(NSMutableDictionary *)rankedDict
 {
@@ -126,47 +115,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
     return block;
 }
 
-- (NSArray *)loadFrequencyLists
-{
-    NSMutableArray *dictionaryMatchers = [[NSMutableArray alloc] init];
 
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"frequency_lists" ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:filePath];
-
-    NSError *error;
-    id json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-
-    if (error == nil) {
-        for (NSString *dictName in (NSDictionary *)json) {
-            
-            NSArray *wordList = [(NSDictionary *)json objectForKey:dictName];
-            NSMutableDictionary *rankedDict = [self buildRankedDict:wordList];
-
-            [dictionaryMatchers addObject:[self buildDictMatcher:dictName rankedDict:rankedDict]];
-        }
-    } else {
-        NSLog(@"Error parsing frequency lists: %@", error);
-    }
-
-    return dictionaryMatchers;
-}
-
-- (NSDictionary *)loadAdjacencyGraphs
-{
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"adjacency_graphs" ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:filePath];
-
-    NSError *error;
-    id json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-
-    if (error == nil) {
-        return (NSDictionary *)json;
-    } else {
-        NSLog(@"Error parsing adjacency graphs: %@", error);
-    }
-
-    return nil;
-}
 
 - (float)calcAverageDegree:(NSDictionary *)graph
 {
