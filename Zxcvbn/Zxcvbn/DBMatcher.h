@@ -17,6 +17,15 @@
 
 @end
 
+@interface DBMatchResources : NSObject
+
+@property (nonatomic, strong) NSArray *dictionaryMatchers;
+@property (nonatomic, strong) NSDictionary *graphs;
+
++ (DBMatchResources *)sharedDBMatcherResources;
+
+@end
+
 @interface DBMatch : NSObject
 
 @property (nonatomic, assign) NSString *pattern;
