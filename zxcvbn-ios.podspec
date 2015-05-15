@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "zxcvbn-ios"
-  s.version       = "1.0.1"
+  s.version       = "1.0.2"
   s.summary       = "A realistic password strength estimator."
   s.description   = <<-DESC
                     An obj-c port of zxcvbn, a password strength estimation library,
