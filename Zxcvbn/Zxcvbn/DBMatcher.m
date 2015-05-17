@@ -500,7 +500,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
             
             match.separator = [result rangeAtIndex:2].location < [password length] ? [password substringWithRange:[result rangeAtIndex:2]] : @"";
             
-            if (12 <= month <= 31 && day <= 12) { // tolerate both day-month and month-day order
+            if (12 <= month && month <= 31 && day <= 12) { // tolerate both day-month and month-day order
                 int temp = day;
                 day = month;
                 month = temp;
