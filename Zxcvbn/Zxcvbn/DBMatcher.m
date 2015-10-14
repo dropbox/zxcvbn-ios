@@ -606,7 +606,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 {
     NSMutableArray *dictionaryMatchers = [[NSMutableArray alloc] init];
     
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"frequency_lists" ofType:@"json"];
+    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"frequency_lists" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     
     NSError *error;
@@ -629,7 +629,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 
 - (NSDictionary *)loadAdjacencyGraphs
 {
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"adjacency_graphs" ofType:@"json"];
+    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"adjacency_graphs" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     
     NSError *error;
