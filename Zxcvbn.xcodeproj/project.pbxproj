@@ -7,212 +7,153 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08AE00E318B9A795006BB842 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 08AE00E218B9A795006BB842 /* README.md */; };
-		08EDE53F18B913EA0056B2C4 /* DBPasswordStrengthMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08EDE53E18B913EA0056B2C4 /* DBPasswordStrengthMeterView.m */; };
-		08EDE54218B9146C0056B2C4 /* DBCreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08EDE54118B9146C0056B2C4 /* DBCreateAccountViewController.m */; };
-		08F59F8418A8830300FB34D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F59F8318A8830300FB34D6 /* Foundation.framework */; };
-		08F59F8618A8830300FB34D6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F59F8518A8830300FB34D6 /* CoreGraphics.framework */; };
-		08F59F8818A8830300FB34D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F59F8718A8830300FB34D6 /* UIKit.framework */; };
-		08F59F8E18A8830300FB34D6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 08F59F8C18A8830300FB34D6 /* InfoPlist.strings */; };
-		08F59F9018A8830300FB34D6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F59F8F18A8830300FB34D6 /* main.m */; };
-		08F59F9418A8830300FB34D6 /* DBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F59F9318A8830300FB34D6 /* DBAppDelegate.m */; };
-		08F59F9718A8830300FB34D6 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08F59F9518A8830300FB34D6 /* Main_iPhone.storyboard */; };
-		08F59F9A18A8830300FB34D6 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08F59F9818A8830300FB34D6 /* Main_iPad.storyboard */; };
-		08F59F9F18A8830300FB34D6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08F59F9E18A8830300FB34D6 /* Images.xcassets */; };
-		08F59FA618A8830300FB34D6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F59FA518A8830300FB34D6 /* XCTest.framework */; };
-		08F59FA718A8830300FB34D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F59F8318A8830300FB34D6 /* Foundation.framework */; };
-		08F59FA818A8830300FB34D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08F59F8718A8830300FB34D6 /* UIKit.framework */; };
-		08F59FB018A8830300FB34D6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 08F59FAE18A8830300FB34D6 /* InfoPlist.strings */; };
-		08F59FB218A8830300FB34D6 /* ZxcvbnTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F59FB118A8830300FB34D6 /* ZxcvbnTests.m */; };
-		08F59FC118A8832800FB34D6 /* DBZxcvbn.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F59FBF18A8832800FB34D6 /* DBZxcvbn.m */; };
-		08F59FC418A885EE00FB34D6 /* DBMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F59FC318A885EE00FB34D6 /* DBMatcher.m */; };
-		08F59FC718A887BB00FB34D6 /* DBScorer.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F59FC618A887BB00FB34D6 /* DBScorer.m */; };
-		08F5A01418A88C0800FB34D6 /* adjacency_graphs.json in Resources */ = {isa = PBXBuildFile; fileRef = 08F5A01218A88C0800FB34D6 /* adjacency_graphs.json */; };
-		08F5A01518A88C0800FB34D6 /* frequency_lists.json in Resources */ = {isa = PBXBuildFile; fileRef = 08F5A01318A88C0800FB34D6 /* frequency_lists.json */; };
-		4C70A41919003A460014646E /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4C70A41819003A460014646E /* LICENSE.txt */; };
+		D80ECB6C1BDEAA420055EF0A /* Zxcvbn.h in Headers */ = {isa = PBXBuildFile; fileRef = D80ECB6B1BDEAA420055EF0A /* Zxcvbn.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D80ECB731BDEAA420055EF0A /* Zxcvbn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80ECB681BDEAA420055EF0A /* Zxcvbn.framework */; };
+		D80ECB781BDEAA420055EF0A /* ZxcvbnTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D80ECB771BDEAA420055EF0A /* ZxcvbnTests.m */; };
+		D80ECB8B1BDEAA7D0055EF0A /* DBMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = D80ECB821BDEAA7D0055EF0A /* DBMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D80ECB8C1BDEAA7D0055EF0A /* DBMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D80ECB831BDEAA7D0055EF0A /* DBMatcher.m */; };
+		D80ECB8D1BDEAA7D0055EF0A /* DBMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D80ECB831BDEAA7D0055EF0A /* DBMatcher.m */; };
+		D80ECB8E1BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.h in Headers */ = {isa = PBXBuildFile; fileRef = D80ECB841BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D80ECB8F1BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D80ECB851BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.m */; };
+		D80ECB901BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D80ECB851BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.m */; };
+		D80ECB911BDEAA7D0055EF0A /* DBScorer.h in Headers */ = {isa = PBXBuildFile; fileRef = D80ECB861BDEAA7D0055EF0A /* DBScorer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D80ECB921BDEAA7D0055EF0A /* DBScorer.m in Sources */ = {isa = PBXBuildFile; fileRef = D80ECB871BDEAA7D0055EF0A /* DBScorer.m */; };
+		D80ECB931BDEAA7D0055EF0A /* DBScorer.m in Sources */ = {isa = PBXBuildFile; fileRef = D80ECB871BDEAA7D0055EF0A /* DBScorer.m */; };
+		D80ECB941BDEAA7D0055EF0A /* DBZxcvbn.h in Headers */ = {isa = PBXBuildFile; fileRef = D80ECB881BDEAA7D0055EF0A /* DBZxcvbn.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D80ECB951BDEAA7D0055EF0A /* DBZxcvbn.m in Sources */ = {isa = PBXBuildFile; fileRef = D80ECB891BDEAA7D0055EF0A /* DBZxcvbn.m */; };
+		D80ECB961BDEAA7D0055EF0A /* DBZxcvbn.m in Sources */ = {isa = PBXBuildFile; fileRef = D80ECB891BDEAA7D0055EF0A /* DBZxcvbn.m */; };
+		D80ECB9C1BDEAAD40055EF0A /* adjacency_graphs.json in Resources */ = {isa = PBXBuildFile; fileRef = D80ECB9A1BDEAABE0055EF0A /* adjacency_graphs.json */; };
+		D80ECB9D1BDEAAD40055EF0A /* frequency_lists.json in Resources */ = {isa = PBXBuildFile; fileRef = D80ECB9B1BDEAABE0055EF0A /* frequency_lists.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		08F59FA918A8830300FB34D6 /* PBXContainerItemProxy */ = {
+		D80ECB741BDEAA420055EF0A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 08F59F7818A8830300FB34D6 /* Project object */;
+			containerPortal = D80ECB5F1BDEAA420055EF0A /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 08F59F7F18A8830300FB34D6;
+			remoteGlobalIDString = D80ECB671BDEAA420055EF0A;
 			remoteInfo = Zxcvbn;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		08AE00E218B9A795006BB842 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
-		08EDE53D18B913EA0056B2C4 /* DBPasswordStrengthMeterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPasswordStrengthMeterView.h; sourceTree = "<group>"; };
-		08EDE53E18B913EA0056B2C4 /* DBPasswordStrengthMeterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPasswordStrengthMeterView.m; sourceTree = "<group>"; };
-		08EDE54018B9146C0056B2C4 /* DBCreateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBCreateAccountViewController.h; sourceTree = "<group>"; };
-		08EDE54118B9146C0056B2C4 /* DBCreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBCreateAccountViewController.m; sourceTree = "<group>"; };
-		08F59F8018A8830300FB34D6 /* Zxcvbn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zxcvbn.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		08F59F8318A8830300FB34D6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		08F59F8518A8830300FB34D6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		08F59F8718A8830300FB34D6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		08F59F8B18A8830300FB34D6 /* Zxcvbn-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Zxcvbn-Info.plist"; sourceTree = "<group>"; };
-		08F59F8D18A8830300FB34D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		08F59F8F18A8830300FB34D6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		08F59F9118A8830300FB34D6 /* Zxcvbn-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Zxcvbn-Prefix.pch"; sourceTree = "<group>"; };
-		08F59F9218A8830300FB34D6 /* DBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBAppDelegate.h; sourceTree = "<group>"; };
-		08F59F9318A8830300FB34D6 /* DBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBAppDelegate.m; sourceTree = "<group>"; };
-		08F59F9618A8830300FB34D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		08F59F9918A8830300FB34D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		08F59F9E18A8830300FB34D6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		08F59FA418A8830300FB34D6 /* ZxcvbnTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZxcvbnTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		08F59FA518A8830300FB34D6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		08F59FAD18A8830300FB34D6 /* ZxcvbnTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ZxcvbnTests-Info.plist"; sourceTree = "<group>"; };
-		08F59FAF18A8830300FB34D6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		08F59FB118A8830300FB34D6 /* ZxcvbnTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZxcvbnTests.m; sourceTree = "<group>"; };
-		08F59FBE18A8832800FB34D6 /* DBZxcvbn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBZxcvbn.h; sourceTree = "<group>"; };
-		08F59FBF18A8832800FB34D6 /* DBZxcvbn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBZxcvbn.m; sourceTree = "<group>"; };
-		08F59FC218A885EE00FB34D6 /* DBMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMatcher.h; sourceTree = "<group>"; };
-		08F59FC318A885EE00FB34D6 /* DBMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMatcher.m; sourceTree = "<group>"; };
-		08F59FC518A887BB00FB34D6 /* DBScorer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBScorer.h; sourceTree = "<group>"; };
-		08F59FC618A887BB00FB34D6 /* DBScorer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBScorer.m; sourceTree = "<group>"; };
-		08F5A01218A88C0800FB34D6 /* adjacency_graphs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = adjacency_graphs.json; sourceTree = "<group>"; };
-		08F5A01318A88C0800FB34D6 /* frequency_lists.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = frequency_lists.json; sourceTree = "<group>"; };
-		4C70A41819003A460014646E /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = SOURCE_ROOT; };
+		D80ECB681BDEAA420055EF0A /* Zxcvbn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Zxcvbn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D80ECB6B1BDEAA420055EF0A /* Zxcvbn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Zxcvbn.h; sourceTree = "<group>"; };
+		D80ECB6D1BDEAA420055EF0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D80ECB721BDEAA420055EF0A /* ZxcvbnTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZxcvbnTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D80ECB771BDEAA420055EF0A /* ZxcvbnTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZxcvbnTests.m; sourceTree = "<group>"; };
+		D80ECB791BDEAA420055EF0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D80ECB821BDEAA7D0055EF0A /* DBMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMatcher.h; sourceTree = "<group>"; };
+		D80ECB831BDEAA7D0055EF0A /* DBMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMatcher.m; sourceTree = "<group>"; };
+		D80ECB841BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPasswordStrengthMeterView.h; sourceTree = "<group>"; };
+		D80ECB851BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPasswordStrengthMeterView.m; sourceTree = "<group>"; };
+		D80ECB861BDEAA7D0055EF0A /* DBScorer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBScorer.h; sourceTree = "<group>"; };
+		D80ECB871BDEAA7D0055EF0A /* DBScorer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBScorer.m; sourceTree = "<group>"; };
+		D80ECB881BDEAA7D0055EF0A /* DBZxcvbn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBZxcvbn.h; sourceTree = "<group>"; };
+		D80ECB891BDEAA7D0055EF0A /* DBZxcvbn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBZxcvbn.m; sourceTree = "<group>"; };
+		D80ECB9A1BDEAABE0055EF0A /* adjacency_graphs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = adjacency_graphs.json; path = generated/adjacency_graphs.json; sourceTree = "<group>"; };
+		D80ECB9B1BDEAABE0055EF0A /* frequency_lists.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = frequency_lists.json; path = generated/frequency_lists.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		08F59F7D18A8830300FB34D6 /* Frameworks */ = {
+		D80ECB641BDEAA420055EF0A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08F59F8618A8830300FB34D6 /* CoreGraphics.framework in Frameworks */,
-				08F59F8818A8830300FB34D6 /* UIKit.framework in Frameworks */,
-				08F59F8418A8830300FB34D6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		08F59FA118A8830300FB34D6 /* Frameworks */ = {
+		D80ECB6F1BDEAA420055EF0A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08F59FA618A8830300FB34D6 /* XCTest.framework in Frameworks */,
-				08F59FA818A8830300FB34D6 /* UIKit.framework in Frameworks */,
-				08F59FA718A8830300FB34D6 /* Foundation.framework in Frameworks */,
+				D80ECB731BDEAA420055EF0A /* Zxcvbn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		08F59F7718A8830300FB34D6 = {
+		D80ECB5E1BDEAA420055EF0A = {
 			isa = PBXGroup;
 			children = (
-				08F59F8918A8830300FB34D6 /* Zxcvbn */,
-				08F59FAB18A8830300FB34D6 /* ZxcvbnTests */,
-				08F59F8218A8830300FB34D6 /* Frameworks */,
-				08F59F8118A8830300FB34D6 /* Products */,
+				D80ECB6A1BDEAA420055EF0A /* Zxcvbn */,
+				D80ECB761BDEAA420055EF0A /* ZxcvbnTests */,
+				D80ECB691BDEAA420055EF0A /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		08F59F8118A8830300FB34D6 /* Products */ = {
+		D80ECB691BDEAA420055EF0A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				08F59F8018A8830300FB34D6 /* Zxcvbn.app */,
-				08F59FA418A8830300FB34D6 /* ZxcvbnTests.xctest */,
+				D80ECB681BDEAA420055EF0A /* Zxcvbn.framework */,
+				D80ECB721BDEAA420055EF0A /* ZxcvbnTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		08F59F8218A8830300FB34D6 /* Frameworks */ = {
+		D80ECB6A1BDEAA420055EF0A /* Zxcvbn */ = {
 			isa = PBXGroup;
 			children = (
-				08F59F8518A8830300FB34D6 /* CoreGraphics.framework */,
-				08F59F8318A8830300FB34D6 /* Foundation.framework */,
-				08F59F8718A8830300FB34D6 /* UIKit.framework */,
-				08F59FA518A8830300FB34D6 /* XCTest.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		08F59F8918A8830300FB34D6 /* Zxcvbn */ = {
-			isa = PBXGroup;
-			children = (
-				08F59FBB18A8832800FB34D6 /* Zxcvbn */,
-				08F59F9218A8830300FB34D6 /* DBAppDelegate.h */,
-				08F59F9318A8830300FB34D6 /* DBAppDelegate.m */,
-				08F59F9518A8830300FB34D6 /* Main_iPhone.storyboard */,
-				08F59F9818A8830300FB34D6 /* Main_iPad.storyboard */,
-				08EDE54018B9146C0056B2C4 /* DBCreateAccountViewController.h */,
-				08EDE54118B9146C0056B2C4 /* DBCreateAccountViewController.m */,
-				08EDE53D18B913EA0056B2C4 /* DBPasswordStrengthMeterView.h */,
-				08EDE53E18B913EA0056B2C4 /* DBPasswordStrengthMeterView.m */,
-				08F59F9E18A8830300FB34D6 /* Images.xcassets */,
-				08F59F8A18A8830300FB34D6 /* Supporting Files */,
+				D80ECB6B1BDEAA420055EF0A /* Zxcvbn.h */,
+				D80ECB821BDEAA7D0055EF0A /* DBMatcher.h */,
+				D80ECB831BDEAA7D0055EF0A /* DBMatcher.m */,
+				D80ECB861BDEAA7D0055EF0A /* DBScorer.h */,
+				D80ECB871BDEAA7D0055EF0A /* DBScorer.m */,
+				D80ECB881BDEAA7D0055EF0A /* DBZxcvbn.h */,
+				D80ECB891BDEAA7D0055EF0A /* DBZxcvbn.m */,
+				D80ECB841BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.h */,
+				D80ECB851BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.m */,
+				D80ECB991BDEAAA10055EF0A /* Generated */,
+				D80ECB6D1BDEAA420055EF0A /* Info.plist */,
 			);
 			path = Zxcvbn;
 			sourceTree = "<group>";
 		};
-		08F59F8A18A8830300FB34D6 /* Supporting Files */ = {
+		D80ECB761BDEAA420055EF0A /* ZxcvbnTests */ = {
 			isa = PBXGroup;
 			children = (
-				08F59F8B18A8830300FB34D6 /* Zxcvbn-Info.plist */,
-				08F59F8C18A8830300FB34D6 /* InfoPlist.strings */,
-				08F59F8F18A8830300FB34D6 /* main.m */,
-				08F59F9118A8830300FB34D6 /* Zxcvbn-Prefix.pch */,
-				08AE00E218B9A795006BB842 /* README.md */,
-				4C70A41819003A460014646E /* LICENSE.txt */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		08F59FAB18A8830300FB34D6 /* ZxcvbnTests */ = {
-			isa = PBXGroup;
-			children = (
-				08F59FB118A8830300FB34D6 /* ZxcvbnTests.m */,
-				08F59FAC18A8830300FB34D6 /* Supporting Files */,
+				D80ECB771BDEAA420055EF0A /* ZxcvbnTests.m */,
+				D80ECB791BDEAA420055EF0A /* Info.plist */,
 			);
 			path = ZxcvbnTests;
 			sourceTree = "<group>";
 		};
-		08F59FAC18A8830300FB34D6 /* Supporting Files */ = {
+		D80ECB991BDEAAA10055EF0A /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				08F59FAD18A8830300FB34D6 /* ZxcvbnTests-Info.plist */,
-				08F59FAE18A8830300FB34D6 /* InfoPlist.strings */,
+				D80ECB9A1BDEAABE0055EF0A /* adjacency_graphs.json */,
+				D80ECB9B1BDEAABE0055EF0A /* frequency_lists.json */,
 			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		08F59FBB18A8832800FB34D6 /* Zxcvbn */ = {
-			isa = PBXGroup;
-			children = (
-				08F5A01118A88C0800FB34D6 /* generated */,
-				08F59FC218A885EE00FB34D6 /* DBMatcher.h */,
-				08F59FC318A885EE00FB34D6 /* DBMatcher.m */,
-				08F59FC518A887BB00FB34D6 /* DBScorer.h */,
-				08F59FC618A887BB00FB34D6 /* DBScorer.m */,
-				08F59FBE18A8832800FB34D6 /* DBZxcvbn.h */,
-				08F59FBF18A8832800FB34D6 /* DBZxcvbn.m */,
-			);
-			path = Zxcvbn;
-			sourceTree = "<group>";
-		};
-		08F5A01118A88C0800FB34D6 /* generated */ = {
-			isa = PBXGroup;
-			children = (
-				08F5A01218A88C0800FB34D6 /* adjacency_graphs.json */,
-				08F5A01318A88C0800FB34D6 /* frequency_lists.json */,
-			);
-			path = generated;
+			name = Generated;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		D80ECB651BDEAA420055EF0A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D80ECB6C1BDEAA420055EF0A /* Zxcvbn.h in Headers */,
+				D80ECB8B1BDEAA7D0055EF0A /* DBMatcher.h in Headers */,
+				D80ECB911BDEAA7D0055EF0A /* DBScorer.h in Headers */,
+				D80ECB941BDEAA7D0055EF0A /* DBZxcvbn.h in Headers */,
+				D80ECB8E1BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		08F59F7F18A8830300FB34D6 /* Zxcvbn */ = {
+		D80ECB671BDEAA420055EF0A /* Zxcvbn */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 08F59FB518A8830300FB34D6 /* Build configuration list for PBXNativeTarget "Zxcvbn" */;
+			buildConfigurationList = D80ECB7C1BDEAA420055EF0A /* Build configuration list for PBXNativeTarget "Zxcvbn" */;
 			buildPhases = (
-				08F59F7C18A8830300FB34D6 /* Sources */,
-				08F59F7D18A8830300FB34D6 /* Frameworks */,
-				08F59F7E18A8830300FB34D6 /* Resources */,
+				D80ECB631BDEAA420055EF0A /* Sources */,
+				D80ECB641BDEAA420055EF0A /* Frameworks */,
+				D80ECB651BDEAA420055EF0A /* Headers */,
+				D80ECB661BDEAA420055EF0A /* Resources */,
 			);
 			buildRules = (
 			);
@@ -220,157 +161,117 @@
 			);
 			name = Zxcvbn;
 			productName = Zxcvbn;
-			productReference = 08F59F8018A8830300FB34D6 /* Zxcvbn.app */;
-			productType = "com.apple.product-type.application";
+			productReference = D80ECB681BDEAA420055EF0A /* Zxcvbn.framework */;
+			productType = "com.apple.product-type.framework";
 		};
-		08F59FA318A8830300FB34D6 /* ZxcvbnTests */ = {
+		D80ECB711BDEAA420055EF0A /* ZxcvbnTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 08F59FB818A8830300FB34D6 /* Build configuration list for PBXNativeTarget "ZxcvbnTests" */;
+			buildConfigurationList = D80ECB7F1BDEAA420055EF0A /* Build configuration list for PBXNativeTarget "ZxcvbnTests" */;
 			buildPhases = (
-				08F59FA018A8830300FB34D6 /* Sources */,
-				08F59FA118A8830300FB34D6 /* Frameworks */,
-				08F59FA218A8830300FB34D6 /* Resources */,
+				D80ECB6E1BDEAA420055EF0A /* Sources */,
+				D80ECB6F1BDEAA420055EF0A /* Frameworks */,
+				D80ECB701BDEAA420055EF0A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				08F59FAA18A8830300FB34D6 /* PBXTargetDependency */,
+				D80ECB751BDEAA420055EF0A /* PBXTargetDependency */,
 			);
 			name = ZxcvbnTests;
 			productName = ZxcvbnTests;
-			productReference = 08F59FA418A8830300FB34D6 /* ZxcvbnTests.xctest */;
+			productReference = D80ECB721BDEAA420055EF0A /* ZxcvbnTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		08F59F7818A8830300FB34D6 /* Project object */ = {
+		D80ECB5F1BDEAA420055EF0A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = DB;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = Dropbox;
 				TargetAttributes = {
-					08F59FA318A8830300FB34D6 = {
-						TestTargetID = 08F59F7F18A8830300FB34D6;
+					D80ECB671BDEAA420055EF0A = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					D80ECB711BDEAA420055EF0A = {
+						CreatedOnToolsVersion = 7.1;
 					};
 				};
 			};
-			buildConfigurationList = 08F59F7B18A8830300FB34D6 /* Build configuration list for PBXProject "Zxcvbn" */;
+			buildConfigurationList = D80ECB621BDEAA420055EF0A /* Build configuration list for PBXProject "Zxcvbn" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
-			mainGroup = 08F59F7718A8830300FB34D6;
-			productRefGroup = 08F59F8118A8830300FB34D6 /* Products */;
+			mainGroup = D80ECB5E1BDEAA420055EF0A;
+			productRefGroup = D80ECB691BDEAA420055EF0A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				08F59F7F18A8830300FB34D6 /* Zxcvbn */,
-				08F59FA318A8830300FB34D6 /* ZxcvbnTests */,
+				D80ECB671BDEAA420055EF0A /* Zxcvbn */,
+				D80ECB711BDEAA420055EF0A /* ZxcvbnTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		08F59F7E18A8830300FB34D6 /* Resources */ = {
+		D80ECB661BDEAA420055EF0A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08F59F9A18A8830300FB34D6 /* Main_iPad.storyboard in Resources */,
-				08F5A01518A88C0800FB34D6 /* frequency_lists.json in Resources */,
-				08F5A01418A88C0800FB34D6 /* adjacency_graphs.json in Resources */,
-				4C70A41919003A460014646E /* LICENSE.txt in Resources */,
-				08F59F9F18A8830300FB34D6 /* Images.xcassets in Resources */,
-				08F59F9718A8830300FB34D6 /* Main_iPhone.storyboard in Resources */,
-				08F59F8E18A8830300FB34D6 /* InfoPlist.strings in Resources */,
-				08AE00E318B9A795006BB842 /* README.md in Resources */,
+				D80ECB9C1BDEAAD40055EF0A /* adjacency_graphs.json in Resources */,
+				D80ECB9D1BDEAAD40055EF0A /* frequency_lists.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		08F59FA218A8830300FB34D6 /* Resources */ = {
+		D80ECB701BDEAA420055EF0A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08F59FB018A8830300FB34D6 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		08F59F7C18A8830300FB34D6 /* Sources */ = {
+		D80ECB631BDEAA420055EF0A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08EDE54218B9146C0056B2C4 /* DBCreateAccountViewController.m in Sources */,
-				08F59FC418A885EE00FB34D6 /* DBMatcher.m in Sources */,
-				08F59FC118A8832800FB34D6 /* DBZxcvbn.m in Sources */,
-				08EDE53F18B913EA0056B2C4 /* DBPasswordStrengthMeterView.m in Sources */,
-				08F59F9418A8830300FB34D6 /* DBAppDelegate.m in Sources */,
-				08F59FC718A887BB00FB34D6 /* DBScorer.m in Sources */,
-				08F59F9018A8830300FB34D6 /* main.m in Sources */,
+				D80ECB921BDEAA7D0055EF0A /* DBScorer.m in Sources */,
+				D80ECB8F1BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.m in Sources */,
+				D80ECB951BDEAA7D0055EF0A /* DBZxcvbn.m in Sources */,
+				D80ECB8C1BDEAA7D0055EF0A /* DBMatcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		08F59FA018A8830300FB34D6 /* Sources */ = {
+		D80ECB6E1BDEAA420055EF0A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08F59FB218A8830300FB34D6 /* ZxcvbnTests.m in Sources */,
+				D80ECB961BDEAA7D0055EF0A /* DBZxcvbn.m in Sources */,
+				D80ECB8D1BDEAA7D0055EF0A /* DBMatcher.m in Sources */,
+				D80ECB931BDEAA7D0055EF0A /* DBScorer.m in Sources */,
+				D80ECB781BDEAA420055EF0A /* ZxcvbnTests.m in Sources */,
+				D80ECB901BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		08F59FAA18A8830300FB34D6 /* PBXTargetDependency */ = {
+		D80ECB751BDEAA420055EF0A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 08F59F7F18A8830300FB34D6 /* Zxcvbn */;
-			targetProxy = 08F59FA918A8830300FB34D6 /* PBXContainerItemProxy */;
+			target = D80ECB671BDEAA420055EF0A /* Zxcvbn */;
+			targetProxy = D80ECB741BDEAA420055EF0A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		08F59F8C18A8830300FB34D6 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				08F59F8D18A8830300FB34D6 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		08F59F9518A8830300FB34D6 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				08F59F9618A8830300FB34D6 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		08F59F9818A8830300FB34D6 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				08F59F9918A8830300FB34D6 /* Base */,
-			);
-			name = Main_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		08F59FAE18A8830300FB34D6 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				08F59FAF18A8830300FB34D6 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		08F59FB318A8830300FB34D6 /* Debug */ = {
+		D80ECB7A1BDEAA420055EF0A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -385,31 +286,39 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		08F59FB418A8830300FB34D6 /* Release */ = {
+		D80ECB7B1BDEAA420055EF0A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -424,121 +333,117 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		08F59FB618A8830300FB34D6 /* Debug */ = {
+		D80ECB7D1BDEAA420055EF0A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Zxcvbn/Zxcvbn-Prefix.pch";
-				INFOPLIST_FILE = "Zxcvbn/Zxcvbn-Info.plist";
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Zxcvbn/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dropbox.Zxcvbn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		08F59FB718A8830300FB34D6 /* Release */ = {
+		D80ECB7E1BDEAA420055EF0A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Zxcvbn/Zxcvbn-Prefix.pch";
-				INFOPLIST_FILE = "Zxcvbn/Zxcvbn-Info.plist";
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Zxcvbn/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dropbox.Zxcvbn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
-		08F59FB918A8830300FB34D6 /* Debug */ = {
+		D80ECB801BDEAA420055EF0A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Zxcvbn.app/Zxcvbn";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Zxcvbn/Zxcvbn-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "ZxcvbnTests/ZxcvbnTests-Info.plist";
+				INFOPLIST_FILE = ZxcvbnTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dropbox.Zxcvbn.ZxcvbnTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
-		08F59FBA18A8830300FB34D6 /* Release */ = {
+		D80ECB811BDEAA420055EF0A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Zxcvbn.app/Zxcvbn";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Zxcvbn/Zxcvbn-Prefix.pch";
-				INFOPLIST_FILE = "ZxcvbnTests/ZxcvbnTests-Info.plist";
+				INFOPLIST_FILE = ZxcvbnTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dropbox.Zxcvbn.ZxcvbnTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		08F59F7B18A8830300FB34D6 /* Build configuration list for PBXProject "Zxcvbn" */ = {
+		D80ECB621BDEAA420055EF0A /* Build configuration list for PBXProject "Zxcvbn" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				08F59FB318A8830300FB34D6 /* Debug */,
-				08F59FB418A8830300FB34D6 /* Release */,
+				D80ECB7A1BDEAA420055EF0A /* Debug */,
+				D80ECB7B1BDEAA420055EF0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		08F59FB518A8830300FB34D6 /* Build configuration list for PBXNativeTarget "Zxcvbn" */ = {
+		D80ECB7C1BDEAA420055EF0A /* Build configuration list for PBXNativeTarget "Zxcvbn" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				08F59FB618A8830300FB34D6 /* Debug */,
-				08F59FB718A8830300FB34D6 /* Release */,
+				D80ECB7D1BDEAA420055EF0A /* Debug */,
+				D80ECB7E1BDEAA420055EF0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		08F59FB818A8830300FB34D6 /* Build configuration list for PBXNativeTarget "ZxcvbnTests" */ = {
+		D80ECB7F1BDEAA420055EF0A /* Build configuration list for PBXNativeTarget "ZxcvbnTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				08F59FB918A8830300FB34D6 /* Debug */,
-				08F59FBA18A8830300FB34D6 /* Release */,
+				D80ECB801BDEAA420055EF0A /* Debug */,
+				D80ECB811BDEAA420055EF0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 08F59F7818A8830300FB34D6 /* Project object */;
+	rootObject = D80ECB5F1BDEAA420055EF0A /* Project object */;
 }

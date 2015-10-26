@@ -8,7 +8,7 @@
 
 #import "DBAppDelegate.h"
 
-#import "DBZxcvbn.h"
+#import <Zxcvbn/DBZxcvbn.h>
 
 @implementation DBAppDelegate
 

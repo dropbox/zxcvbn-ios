@@ -8,7 +8,7 @@
 
 #import "DBCreateAccountViewController.h"
 
-#import "DBPasswordStrengthMeterView.h"
+#import <Zxcvbn/DBPasswordStrengthMeterView.h>
 
 @interface DBCreateAccountViewController () <DBPasswordStrengthMeterViewDelegate>
 

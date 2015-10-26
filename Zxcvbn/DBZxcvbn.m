@@ -7,6 +7,7 @@
 //
 
 #import "DBZxcvbn.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface DBZxcvbn ()
 

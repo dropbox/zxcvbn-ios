@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Dropbox. All rights reserved.
 //
 
+#include <UIKit/UIKit.h>
+
 @interface DBAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
