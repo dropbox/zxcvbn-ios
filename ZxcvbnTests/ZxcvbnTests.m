@@ -8,6 +8,8 @@
 
 #import <XCTest/XCTest.h>
 
+#import "DBZxcvbn.h"
+
 @interface ZxcvbnTests : XCTestCase
 
 @end
@@ -26,9 +28,37 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testScore0Password
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    
+    DBZxcvbn *zxcvbn = [[DBZxcvbn alloc] init];
+    DBResult *result = [zxcvbn passwordStrength:@"easy password" userInputs:nil];
+    
+    XCTAssertTrue([@"english" isEqualToString:[(DBMatch *)result.matchSequence[0] dictionaryName]]);
+    XCTAssertTrue([@"dictionary" isEqualToString:[(DBMatch *)result.matchSequence[0] pattern]]);
+    
+    XCTAssertEqual(result.score, 0);
+
+}
+
+- (void)testScore1Password
+{
+    
+    DBZxcvbn *zxcvbn = [[DBZxcvbn alloc] init];
+    DBResult *result = [zxcvbn passwordStrength:@"easy password2" userInputs:nil];
+    
+    XCTAssertEqual(result.score, 1);
+    
+}
+
+- (void)testStrongPassword
+{
+    
+    DBZxcvbn *zxcvbn = [[DBZxcvbn alloc] init];
+    DBResult *result = [zxcvbn passwordStrength:@"dkgit dldig394595 &&(3" userInputs:nil];
+    
+    XCTAssertEqual(result.score, 4);
+    
 }
 
 @end
