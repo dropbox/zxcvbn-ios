@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Dropbox. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
 @class DBResult;
 
 @interface DBScorer : NSObject
