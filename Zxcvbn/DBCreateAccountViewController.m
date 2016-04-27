@@ -41,8 +41,11 @@
 
 - (void)passwordStrengthMeterViewTapped:(DBPasswordStrengthMeterView *)passwordStrengthMeterView
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:@"Good passwords are hard to guess. Use uncommon words or inside jokes, non-standard uPPercasing, creative spelling, and non-obvious numbers and symbols." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Okay", nil];
-    [alertView show];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil
+                                                                             message:@"Good passwords are hard to guess. Use uncommon words or inside jokes, non-standard uPPercasing, creative spelling, and non-obvious numbers and symbols."
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 @end
