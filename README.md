@@ -17,7 +17,7 @@ patterns.
 
 Check out the original [JavaScript](https://github.com/dropbox/zxcvbn) (well, CoffeeScript) or the [Python port](https://github.com/dropbox/python-zxcvbn).
 
-For full motivation, see: http://tech.dropbox.com/?p=165
+For full motivation, see [zxcvbn: realistic password strength estimation](https://blogs.dropbox.com/tech/2012/04/zxcvbn-realistic-password-strength-estimation/).
 
 # Installation
 
@@ -25,7 +25,11 @@ Coming soon.
 
 # Use
 
-The easiest way to use `DBZxcvbn` is by displaying a `DBPasswordStrengthMeter` in your form. Set up your `UITextFieldDelegate` and add a `DBPasswordStrengthMeter`. As the user types, you can call `scorePassword:` like so:
+The easiest way to use `DBZxcvbn` is by displaying a `DBPasswordStrengthMeter` in your form. Set up your `UITextFieldDelegate` and add a `DBPasswordStrengthMeter`.
+
+See the example here: [DBCreateAccountViewController.m](https://github.com/dropbox/zxcvbn-ios/blob/master/Example/DBCreateAccountViewController.m)
+
+As the user types, you can call `scorePassword:` like so:
 ``` objc
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
@@ -40,13 +44,13 @@ The easiest way to use `DBZxcvbn` is by displaying a `DBPasswordStrengthMeter` i
 Here is what `DBPasswordStrengthMeter` looks like in a form:
 
 <p align="center">
-    <img src="https://github.com/leah/zxcvbn-ios/blob/master/Zxcvbn/zxcvbn-example.png?raw=true" width="360" height="600" />
+    <img src="https://raw.githubusercontent.com/dropbox/zxcvbn-ios/master/zxcvbn-example.png" width="360" height="600" />
 </p>
 
 To use `DBZxcvbn` without the `DBPasswordStrengthMeter` view simply import `DBZxcvbn.h`, create a new instance of `DBZxcvbn`, then call `passwordStrength:userInputs:`.
 
 ``` objc
-#import "DBZxcvbn.h"
+#import <Zxcvbn/DBZxcvbn.h>
 
 DBZxcvbn *zxcvbn = [[DBZxcvbn alloc] init];
 DBResult *result = [zxcvbn passwordStrength:password userInputs:userInputs];
