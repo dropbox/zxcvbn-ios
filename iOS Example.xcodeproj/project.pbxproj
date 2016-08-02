@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CF371F21D508A9B008907F2 /* Zxcvbn.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D80ECC021BDEB0FE0055EF0A /* Zxcvbn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4CF9DAD21CD16B6F006A229D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CF9DAD01CD16B6F006A229D /* Main.storyboard */; };
 		D80ECBB11BDEAE9D0055EF0A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D80ECBB01BDEAE9D0055EF0A /* main.m */; };
 		D80ECBBC1BDEAE9D0055EF0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D80ECBBB1BDEAE9D0055EF0A /* Assets.xcassets */; };
 		D80ECBBF1BDEAE9D0055EF0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D80ECBBD1BDEAE9D0055EF0A /* LaunchScreen.storyboard */; };
 		D80ECBF81BDEB0890055EF0A /* DBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D80ECBF71BDEB0890055EF0A /* DBAppDelegate.m */; };
 		D80ECBFB1BDEB0B10055EF0A /* DBCreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D80ECBFA1BDEB0B10055EF0A /* DBCreateAccountViewController.m */; };
-		D8EF582F1BDEB1470014E84B /* Zxcvbn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80ECC021BDEB0FE0055EF0A /* Zxcvbn.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +40,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0CF371F11D508A8B008907F2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0CF371F21D508A9B008907F2 /* Zxcvbn.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4CF9DAD11CD16B6F006A229D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D80ECBAC1BDEAE9D0055EF0A /* iOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,7 +72,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8EF582F1BDEB1470014E84B /* Zxcvbn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +139,7 @@
 				D80ECBA81BDEAE9D0055EF0A /* Sources */,
 				D80ECBA91BDEAE9D0055EF0A /* Frameworks */,
 				D80ECBAA1BDEAE9D0055EF0A /* Resources */,
+				0CF371F11D508A8B008907F2 /* CopyFiles */,
 			);
 			buildRules = (
 			);
