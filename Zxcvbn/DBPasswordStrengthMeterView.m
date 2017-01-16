@@ -43,6 +43,8 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+
     [self sharedInit];
 }
 
