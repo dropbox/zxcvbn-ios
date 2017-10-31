@@ -7,7 +7,7 @@
 ........................................................................
 ```
 
-An obj-c port of zxcvbn, a password strength estimation library, designed for iOS.
+An obj-c port of [zxcvbn](https://github.com/dropbox/zxcvbn), a password strength estimation library, designed for iOS.
 
 `DBZxcvbn` attempts to give sound password advice through pattern matching
 and conservative entropy calculations. It finds 10k common passwords,
