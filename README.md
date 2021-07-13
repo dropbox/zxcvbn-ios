@@ -21,7 +21,26 @@ For full motivation, see [zxcvbn: realistic password strength estimation](https:
 
 # Installation
 
-Coming soon.
+Swift Package Manager: 
+
+Add `Zxcvbn` package via Xcode.
+Import into Swift using:
+
+```
+	import Zxcvbn
+```
+
+Cocoapods:
+
+Add pod to your podfile:
+
+`pod 'zxcvbn-ios'`
+
+Import into Swift using: 
+
+```
+	import zxcvbn_ios
+```
 
 # Use
 

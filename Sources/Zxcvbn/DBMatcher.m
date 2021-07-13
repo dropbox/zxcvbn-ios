@@ -7,6 +7,36 @@
 //
 
 #import "DBMatcher.h"
+//Workaround for https://bugs.swift.org/browse/SR-13714
+#if SWIFT_PACKAGE
+NS_ASSUME_NONNULL_BEGIN
+ @interface Zxcvbn_Zxcvbn_SWIFTPM_MODULE_BUNDLER_FINDER_TEST_FIX : NSObject
+ @end
+
+ @implementation Zxcvbn_Zxcvbn_SWIFTPM_MODULE_BUNDLER_FINDER_TEST_FIX
+ @end
+
+NSBundle* Zxcvbn_Zxcvbn_SWIFTPM_MODULE_BUNDLE_TEST_FIX() {
+    NSString *bundleName = @"Zxcvbn_Zxcvbn";
+    NSArray<NSURL*> *candidates = @[
+        NSBundle.mainBundle.resourceURL,
+        [NSBundle bundleForClass:[Zxcvbn_Zxcvbn_SWIFTPM_MODULE_BUNDLER_FINDER_TEST_FIX class]].resourceURL,
+        [[NSBundle bundleForClass:[Zxcvbn_Zxcvbn_SWIFTPM_MODULE_BUNDLER_FINDER_TEST_FIX class]].resourceURL URLByAppendingPathComponent: @".."],
+        NSBundle.mainBundle.bundleURL
+    ];
+    for (NSURL* candidate in candidates) {
+        NSURL *bundlePath = [candidate URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.bundle", bundleName]];
+        NSBundle *bundle = [NSBundle bundleWithURL:bundlePath];
+        if (bundle != nil) {
+            return bundle;
+        }
+    }
+    @throw [[NSException alloc] initWithName:@"SwiftPMResourcesAccessor" reason:[NSString stringWithFormat:@"unable to find bundle named %@", bundleName] userInfo:nil];
+}
+NS_ASSUME_NONNULL_END
+#undef SWIFTPM_MODULE_BUNDLE
+#define SWIFTPM_MODULE_BUNDLE Zxcvbn_Zxcvbn_SWIFTPM_MODULE_BUNDLE_TEST_FIX()
+#endif
 
 typedef NSArray* (^MatcherBlock)(NSString *password);
 
@@ -605,8 +635,11 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 - (NSArray *)loadFrequencyLists
 {
     NSMutableArray *dictionaryMatchers = [[NSMutableArray alloc] init];
-    
+#if SWIFT_PACKAGE
+    NSString *filePath = [SWIFTPM_MODULE_BUNDLE pathForResource:@"frequency_lists" ofType:@"json"];
+#else
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"frequency_lists" ofType:@"json"];
+#endif
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     
     NSError *error;
@@ -629,7 +662,11 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 
 - (NSDictionary *)loadAdjacencyGraphs
 {
+#if SWIFT_PACKAGE
+    NSString *filePath = [SWIFTPM_MODULE_BUNDLE pathForResource:@"adjacency_graphs" ofType:@"json"];
+#else
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"adjacency_graphs" ofType:@"json"];
+#endif
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     
     NSError *error;
