@@ -14,7 +14,7 @@ FOUNDATION_EXPORT double ZxcvbnVersionNumber;
 //! Project version string for Zxcvbn.
 FOUNDATION_EXPORT const unsigned char ZxcvbnVersionString[];
 
-#import <Zxcvbn/DBMatcher.h>
-#import <Zxcvbn/DBScorer.h>
-#import <Zxcvbn/DBZxcvbn.h>
-#import <Zxcvbn/DBPasswordStrengthMeterView.h>
+#import "DBMatcher.h"
+#import "DBScorer.h"
+#import "DBZxcvbn.h"
+#import "DBPasswordStrengthMeterView.h"

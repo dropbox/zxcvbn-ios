@@ -18,8 +18,8 @@ Pod::Spec.new do |s|
   s.author        = { "Leah Culver" => "leah@dropbox.com" }
   s.platform      = :ios, "7.0"
   s.source        = { :git => "https://github.com/dropbox/zxcvbn-ios.git", :tag => "v1.0.4"}
-  s.source_files  = "Zxcvbn/*.{h,m}"
-  s.exclude_files = "Zxcvbn/Zxcvbn.h"
-  s.resources     = "Zxcvbn/generated/*.json"
+  s.source_files  = "Sources/Zxcvbn/**/*.{h,m}"
+  s.exclude_files = "Sources/Zxcvbn/Zxcvbn.h"
+  s.resources     = "Sources/Zxcvbn/Resources/*.json"
   s.requires_arc  = true
 end
