@@ -10,20 +10,20 @@
 		D80ECB6C1BDEAA420055EF0A /* Zxcvbn.h in Headers */ = {isa = PBXBuildFile; fileRef = D80ECB6B1BDEAA420055EF0A /* Zxcvbn.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D80ECB731BDEAA420055EF0A /* Zxcvbn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80ECB681BDEAA420055EF0A /* Zxcvbn.framework */; };
 		D80ECB781BDEAA420055EF0A /* ZxcvbnTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D80ECB771BDEAA420055EF0A /* ZxcvbnTests.m */; };
-		D80ECB8B1BDEAA7D0055EF0A /* DBMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = D80ECB821BDEAA7D0055EF0A /* DBMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D80ECB8C1BDEAA7D0055EF0A /* DBMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D80ECB831BDEAA7D0055EF0A /* DBMatcher.m */; };
 		D80ECB8D1BDEAA7D0055EF0A /* DBMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D80ECB831BDEAA7D0055EF0A /* DBMatcher.m */; };
-		D80ECB8E1BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.h in Headers */ = {isa = PBXBuildFile; fileRef = D80ECB841BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D80ECB8F1BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D80ECB851BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.m */; };
 		D80ECB901BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = D80ECB851BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.m */; };
-		D80ECB911BDEAA7D0055EF0A /* DBScorer.h in Headers */ = {isa = PBXBuildFile; fileRef = D80ECB861BDEAA7D0055EF0A /* DBScorer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D80ECB921BDEAA7D0055EF0A /* DBScorer.m in Sources */ = {isa = PBXBuildFile; fileRef = D80ECB871BDEAA7D0055EF0A /* DBScorer.m */; };
 		D80ECB931BDEAA7D0055EF0A /* DBScorer.m in Sources */ = {isa = PBXBuildFile; fileRef = D80ECB871BDEAA7D0055EF0A /* DBScorer.m */; };
-		D80ECB941BDEAA7D0055EF0A /* DBZxcvbn.h in Headers */ = {isa = PBXBuildFile; fileRef = D80ECB881BDEAA7D0055EF0A /* DBZxcvbn.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D80ECB951BDEAA7D0055EF0A /* DBZxcvbn.m in Sources */ = {isa = PBXBuildFile; fileRef = D80ECB891BDEAA7D0055EF0A /* DBZxcvbn.m */; };
 		D80ECB961BDEAA7D0055EF0A /* DBZxcvbn.m in Sources */ = {isa = PBXBuildFile; fileRef = D80ECB891BDEAA7D0055EF0A /* DBZxcvbn.m */; };
 		D80ECB9C1BDEAAD40055EF0A /* adjacency_graphs.json in Resources */ = {isa = PBXBuildFile; fileRef = D80ECB9A1BDEAABE0055EF0A /* adjacency_graphs.json */; };
 		D80ECB9D1BDEAAD40055EF0A /* frequency_lists.json in Resources */ = {isa = PBXBuildFile; fileRef = D80ECB9B1BDEAABE0055EF0A /* frequency_lists.json */; };
+		F33A751B26C6B5EA000C2F54 /* DBMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = F33A751726C6B5EA000C2F54 /* DBMatcher.h */; };
+		F33A751C26C6B5EA000C2F54 /* DBPasswordStrengthMeterView.h in Headers */ = {isa = PBXBuildFile; fileRef = F33A751826C6B5EA000C2F54 /* DBPasswordStrengthMeterView.h */; };
+		F33A751D26C6B5EA000C2F54 /* DBZxcvbn.h in Headers */ = {isa = PBXBuildFile; fileRef = F33A751926C6B5EA000C2F54 /* DBZxcvbn.h */; };
+		F33A751E26C6B5EA000C2F54 /* DBScorer.h in Headers */ = {isa = PBXBuildFile; fileRef = F33A751A26C6B5EA000C2F54 /* DBScorer.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,16 +43,16 @@
 		D80ECB721BDEAA420055EF0A /* ZxcvbnTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZxcvbnTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D80ECB771BDEAA420055EF0A /* ZxcvbnTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZxcvbnTests.m; sourceTree = "<group>"; };
 		D80ECB791BDEAA420055EF0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D80ECB821BDEAA7D0055EF0A /* DBMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMatcher.h; sourceTree = "<group>"; };
 		D80ECB831BDEAA7D0055EF0A /* DBMatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBMatcher.m; sourceTree = "<group>"; };
-		D80ECB841BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPasswordStrengthMeterView.h; sourceTree = "<group>"; };
 		D80ECB851BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPasswordStrengthMeterView.m; sourceTree = "<group>"; };
-		D80ECB861BDEAA7D0055EF0A /* DBScorer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBScorer.h; sourceTree = "<group>"; };
 		D80ECB871BDEAA7D0055EF0A /* DBScorer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBScorer.m; sourceTree = "<group>"; };
-		D80ECB881BDEAA7D0055EF0A /* DBZxcvbn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBZxcvbn.h; sourceTree = "<group>"; };
 		D80ECB891BDEAA7D0055EF0A /* DBZxcvbn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBZxcvbn.m; sourceTree = "<group>"; };
 		D80ECB9A1BDEAABE0055EF0A /* adjacency_graphs.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = adjacency_graphs.json; path = generated/adjacency_graphs.json; sourceTree = "<group>"; };
 		D80ECB9B1BDEAABE0055EF0A /* frequency_lists.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = frequency_lists.json; path = generated/frequency_lists.json; sourceTree = "<group>"; };
+		F33A751726C6B5EA000C2F54 /* DBMatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMatcher.h; sourceTree = "<group>"; };
+		F33A751826C6B5EA000C2F54 /* DBPasswordStrengthMeterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPasswordStrengthMeterView.h; sourceTree = "<group>"; };
+		F33A751926C6B5EA000C2F54 /* DBZxcvbn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBZxcvbn.h; sourceTree = "<group>"; };
+		F33A751A26C6B5EA000C2F54 /* DBScorer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBScorer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,14 +95,11 @@
 		D80ECB6A1BDEAA420055EF0A /* Zxcvbn */ = {
 			isa = PBXGroup;
 			children = (
+				F33A751626C6B5EA000C2F54 /* include */,
 				D80ECB6B1BDEAA420055EF0A /* Zxcvbn.h */,
-				D80ECB821BDEAA7D0055EF0A /* DBMatcher.h */,
 				D80ECB831BDEAA7D0055EF0A /* DBMatcher.m */,
-				D80ECB861BDEAA7D0055EF0A /* DBScorer.h */,
 				D80ECB871BDEAA7D0055EF0A /* DBScorer.m */,
-				D80ECB881BDEAA7D0055EF0A /* DBZxcvbn.h */,
 				D80ECB891BDEAA7D0055EF0A /* DBZxcvbn.m */,
-				D80ECB841BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.h */,
 				D80ECB851BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.m */,
 				D80ECB991BDEAAA10055EF0A /* Generated */,
 				D80ECB6D1BDEAA420055EF0A /* Info.plist */,
@@ -128,6 +125,17 @@
 			name = Generated;
 			sourceTree = "<group>";
 		};
+		F33A751626C6B5EA000C2F54 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				F33A751726C6B5EA000C2F54 /* DBMatcher.h */,
+				F33A751826C6B5EA000C2F54 /* DBPasswordStrengthMeterView.h */,
+				F33A751926C6B5EA000C2F54 /* DBZxcvbn.h */,
+				F33A751A26C6B5EA000C2F54 /* DBScorer.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -136,10 +144,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D80ECB6C1BDEAA420055EF0A /* Zxcvbn.h in Headers */,
-				D80ECB8B1BDEAA7D0055EF0A /* DBMatcher.h in Headers */,
-				D80ECB911BDEAA7D0055EF0A /* DBScorer.h in Headers */,
-				D80ECB941BDEAA7D0055EF0A /* DBZxcvbn.h in Headers */,
-				D80ECB8E1BDEAA7D0055EF0A /* DBPasswordStrengthMeterView.h in Headers */,
+				F33A751E26C6B5EA000C2F54 /* DBScorer.h in Headers */,
+				F33A751D26C6B5EA000C2F54 /* DBZxcvbn.h in Headers */,
+				F33A751B26C6B5EA000C2F54 /* DBMatcher.h in Headers */,
+				F33A751C26C6B5EA000C2F54 /* DBPasswordStrengthMeterView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +212,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = D80ECB5E1BDEAA420055EF0A;

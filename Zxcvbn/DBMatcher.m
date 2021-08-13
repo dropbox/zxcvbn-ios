@@ -602,11 +602,20 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
     return self;
 }
 
+- (NSBundle *)bundle;
+{
+#if SWIFT_PACKAGE
+        return SWIFTPM_MODULE_BUNDLE;
+#else
+        return [NSBundle bundleForClass:[self class]];
+#endif
+}
+
 - (NSArray *)loadFrequencyLists
 {
     NSMutableArray *dictionaryMatchers = [[NSMutableArray alloc] init];
     
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"frequency_lists" ofType:@"json"];
+    NSString *filePath = [self.bundle pathForResource:@"frequency_lists" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     
     NSError *error;
@@ -629,7 +638,7 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 
 - (NSDictionary *)loadAdjacencyGraphs
 {
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"adjacency_graphs" ofType:@"json"];
+    NSString *filePath = [self.bundle pathForResource:@"adjacency_graphs" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     
     NSError *error;
