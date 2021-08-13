@@ -604,11 +604,11 @@ typedef NSArray* (^MatcherBlock)(NSString *password);
 
 - (NSBundle *)bundle;
 {
-    @try {
+#if SWIFT_PACKAGE
         return SWIFTPM_MODULE_BUNDLE;
-    } @catch(NSException *e) {
+#else
         return [NSBundle bundleForClass:[self class]];
-    }
+#endif
 }
 
 - (NSArray *)loadFrequencyLists
